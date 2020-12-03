@@ -6,24 +6,59 @@ let data = [
     
     
     //arraow function para anadir personas, siempre que no exista ya su telefono
-    let newPerson = Promise((resolve, reject)=>{
-        let existe = data.filter(pers => pers.phone === personanueva.phone);
-        if(existe.length ==0)
-           resolve (existe);
-        else
-            reject("no results");
+    let nuevaPersona = persona =>{
+        return new Promise((resolve, reject) => {
+        let existe = data.filter(pers => pers.phone === persona.phone);
+        if(existe.length ==0){
+            data.push(persona);
+            resolve(persona);
+        }else{
+            reject("error el telefono ya existe");
+        }
+            
+    });
+} 
+// Arrow function para borrar una persona por su teléfono
+let borrarPersona = telefono => {
+    return new Promise((resolve, reject) => {
+        let existePersona = data.filter(persona => persona.telefono === telefono);
+        if (existePersona.length > 0) {
+            data = data.filter(persona => persona.telefono != telefono);
+            resolve(existePersona[0]);
+        } else {
+            reject("Error: no se han encontrado coincidencias");
+        }
+    });
+}
+    //agrea persona
+    nuevaPersona ({name: "Juan", phone: "965661564", age: 60}).then(resultado =>{
+        console.log("Añadida persona:", resultado);
+    }).catch(error => {
+    console.log(error);
+    });
+    nuevaPersona({name: "Rodolfo", phone:"910011001", age: 20}).then(resultado => {
+        console.log("Añadida persona:", resultado);
+    }).catch(error => {
+        console.log(error);
+    });
+    // Inserción repetida para que dé error
+    nuevaPersona({name: "Rodolfo", phone:"910011001", age: 20}).then(resultado => {
+        console.log("Añadida persona:", resultado);
+    }).catch(error => {
+        console.log(error);
     });
     
-    newPerson.then(result => {
-        // If we are here the promise has been correctly processed
-     
-        console.log("ha insertado corrctamente");
-        console.log(result);
-        }).catch(error => {
-        // if we are here there was an error
-        console.log("Error:", error);
+    // Borrados
+    borrarPersona("910011001").then(resultado => {
+        console.log("Borrada persona:", resultado);
+    }).catch(error => {
+        console.log(error);
     });
-    //agrea persona
-    newPerson ({name: "Juan", phone: "965661564", age: 60});
+    // Borrado con número equivocado para que dé error
+    borrarPersona("000000000").then(resultado => {
+        console.log("Borrada persona:", resultado);
+    }).catch(error => {
+        console.log(error);
+    });
 
     console.log (data);
