@@ -35,3 +35,9 @@ newWindowBton.addEventListener('click', function (event) {
     });
 });
 
+winthree.loadURL(url.format({
+    pathname: path.join(__dirname, 'index3.html'),
+    protocol: 'file',
+    slashes: true
+}));
+
