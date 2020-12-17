@@ -1,0 +1,8 @@
+De todas las herramientas con las que cuenta el desarrollador de NodeJS,
+ una de las más potentes es sin duda los streams. Entre ellos,
+  los streams de lectura (Readable stream o ReadStream) 
+  son los que usarás con más frecuencia. Ya sea para leer un fichero o para descargarte algo de internet, tienes que usar una implementación de un ReadStream.
+
+¿Pero qué es un ReadStream? Si traducimos literalmente de la documentación de NodeJS, La interfaz Readable stream es la abstracción de una fuente de datos desde la que estás leyendo. En otras palabras, los datos provienen de un Readble stream.
+
+La verdad es que esa descripción no me parece demasiado iluminadora. Así que voy a tratar de hacerle caso a Steven Pinker en su libro The Sense Of Style, y voy a tratar de crear una imagen en tu cabeza que haga más fácil entender el concepto.
