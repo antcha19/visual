@@ -20,26 +20,6 @@ function createWindow() {
 
     //manera2
     win.loadFile('index.html');
-//opcion desarollo web
-//   win.webContents.openDevTools();
- //   win.on('closed',()=>{
- //       win=null;
- //   });
-
-   
 }
 
-
 app.on('ready', createWindow);
-
-
-//proceso
-//creo carpeta helloword
-//tengop que tener main.js
-//1.-npm init
-//2.-package.json poner start electron
-//3.-npm install --save -verbose electron
-//4.-creo el index.html
-//5.-importamos modules de electron
-//6.-codigo main.js
-//7.-npm start
