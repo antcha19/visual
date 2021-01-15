@@ -20,13 +20,7 @@ function createWindow() {
 
     //manera2
     win.loadFile('index.html');
-//opcion desarollo web
-    win.webContents.openDevTools();
-    win.on('closed',()=>{
-        win=null;
-    });
-
-   
+ 
 }
 
 

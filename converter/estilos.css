@@ -1,18 +1,18 @@
 .wrapper {
-    border: 2px solid #f76707;
+    border: 2px solid #0753f7;
     border-radius: 5px;
-    background-color: #fff4e6;
+    background-color: #b4c0e9;
    }
    
    .wrapper > div {
-    border: 2px solid #ffa94d;
+    border: 2px solid #b9b3f7;
     border-radius: 5px;
-    background-color: #ffd8a8;
+    background-color: #989aa3;
     padding: 1em;
-    Colour: #d9480f;
+    Colour: #474747;
    }
    .wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
+    grid-gap: 5px;
    }

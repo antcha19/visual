@@ -1,22 +1,22 @@
-//1.- asignamos  el textfield una variable
-let text = document.getElementById("text");
-
-//asignamos el listiner al boton
-let button = document.getElementById("button")
-button.addEventListener('click', () => {
-   alert(text.value);
-});
+//declaramos las variables
+let cel = document.getElementById("idcel");
+let kel = document.getElementById("idkel")
+let convertir = document.getElementById("idconvertir")
+let limpiar = document.getElementById("idlimpiar")
 
 
-// text field event
-//text.addEventListener('click ', () => {
-// alert ("Click in text field!");
-//});
 
+convertir.addEventListener('click', (event) =>{
+   if (kel.value == "") {
+      kel.value = parseFloat(cel.value) + 273.15;
+  }
+  if (cel.value == "") {
+      cel.value = (parseFloat(kel.value) - 273.15);
+  }
+})
 
-text.addEventListener('keyup', (event) => {
-    if (event.code == "Enter") {
-       // alert("Enter!");
-       sample.innerHTML=text.value;
-    }
-});
+//para eliminar el contenido los textfields
+limpiar.addEventListener('click', (event) => {
+   kel.value = "";
+   cel.value = "";
+})
