@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Exercise with file</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/photon.min.css">
+    <link rel="stylesheet" href="css/photon.css">
+
+</head>
+
+<body>
+
+    <div class="window">
+        <!-- Base class to create photon window -->
+
+        <!-- Header bar -->
+        <header class="toolbar toolbar-header">
+            <h1 class="title">Clientes</h1>
+        </header>
+
+        <!-- Main content of the window -->
+        <div class="window-content">
+            <!-- Panel class -->
+            <div class="pane-group">
+                <!-- Right panel -->
+
+                <!-- Center panel -->
+                <div class="pane">
+                    <div id="etiquetas">
+
+                    </div>
+                    <div id="sample">
+                        <label>Dni</label>
+                        <input type="text" id="dni" class="form-control" placeholder="Dni"><br><br>
+                        <label>Nombre</label>
+                        <input type="text" id="nombre" class="form-control" placeholder="Nombre"><br><br>
+                        <label>Telefono</label>
+                        <input type="text" id="telefono" class="form-control" placeholder="Telefono"><br><br>
+
+                        <button id="btnprimero" class="btn btn-primary">
+                            <span class="icon icon-to-start"></span>
+                        </button>
+
+                        <button id="btnatras" class="btn btn-primary">
+                            <span class="icon icon-left"></span>
+                        </button>
+
+                        <button id="btnadelante" class="btn btn-primary">
+                            <span class="icon icon-right"></span>
+                        </button>
+
+                        <button id="btnultimo" class="btn btn-primary">
+                            <span class="icon icon-to-end"></span>
+                        </button>
+
+                        <button id="btnborrar" class="btn btn-primary">
+                            <span class="icon icon-erase"></span>
+                        </button>
+
+                        <button id="btninsertar" class="btn btn-negative">
+                            <span class="icon icon-folder"></span>
+                        </button>
+
+                        <button id="btnactualizar" class="btn btn-primary">
+                            <span class="icon icon-floppy"></span>
+                        </button>
+
+                    </div>
+                    <script src="./functions.js"></script>
+                </div>
+            </div>
+        </div>
+
+        <!-- Foot bar -->
+        <footer class="toolbar toolbar-footer">
+            <h1 class="title">Formulario Clientes Usando ficheros JSON</h1>
+        </footer>
+
+    </div>
+
+
+
+</body>
+
+</html>
