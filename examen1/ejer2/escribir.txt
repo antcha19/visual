@@ -1,0 +1,7 @@
+Nombre antonio
+Email fsdfads@dsffs
+Telefono 343434
+Direccion calles fdgsdfg
+Tarjeta 34353452
+Proveedor bbva
+Sexohombre

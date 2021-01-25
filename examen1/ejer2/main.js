@@ -1,4 +1,3 @@
-
 const electron = require('electron');
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
@@ -7,6 +6,9 @@ const url = require('url');
 
 function createWindow() {
     let win = new BrowserWindow({
+        //tamaño de la venta
+        width: 600,
+        height: 350,
         webPreferences: {
             nodeIntegration: true
         }
@@ -24,14 +26,16 @@ function createWindow() {
  
 }
 
-app.on('ready', createWindow);
 
+app.on('ready', createWindow);
 
 //proceso
 //creo carpeta helloword
+//tengop que tener main.js
 //1.-npm init
 //2.-package.json poner start electron
-//3.-npm install --save -verbose electron 
+//3.-npm install --save -verbose electron
 //4.-creo el index.html
 //5.-importamos modules de electron
 //6.-codigo main.js
+//7.-npm start
