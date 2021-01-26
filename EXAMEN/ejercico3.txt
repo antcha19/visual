@@ -1,0 +1,23 @@
+
+este codigo lo generamos con npm init, cuando lo hacemos 
+nos pregunta las siguientes lineas
+{
+  "name": "clientescrudfile",           este seria el nombre del proyecto 
+  "version": "1.0.0",                   la version 
+  "description": "",                    la descripcion que  nosotros lo ponemos 
+  "main": "main.js",                    codigo para crear y lanzar la ventana , no confundir con index.html ya que este seria el diseño
+  "scripts": {
+    “start”: “electron .”               sirve para inicializar el proyecto
+  },
+  "author": "",                         nombre el autor como vemos aqui esta vacio
+  "license": "ISC",                     es el tipo de licencia en este caso seria software libre permisiva
+  "dependencies": {                         
+    "electron": "^11.2.0",
+    “lodash”: “^4.0.0”
+  }
+}
+
+If we copy the project in another computer, which order do we have to write to rebuild the project?
+
+Tenemos que descargar los modules 
+npm install --save -verbose electron
