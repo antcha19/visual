@@ -1,0 +1,6 @@
+//entramos al shell
+mongo
+use contacts - create bdd
+db.createCollection("contacts")- create tablas
+db.contacts.find()- select
+db.contacts.remove({name:{"Boris"}) --delete
