@@ -14,7 +14,6 @@ mongoose.connect(url1, {
 }).then(() => { console.log('connected') })
     .catch((err) => { console.log('error') })
 
-
 //scheme
 let contactSchema = new mongoose.Schema({
     name: {
@@ -43,53 +42,55 @@ let Contact = mongoose.model('contacts', contactSchema);
 
 // add documents
 // first we create the contact
-let contact1 = new Contact({
+/*let contact1 = new Contact({
     name: "Boris",
     telephone: "946112230",
     age: 49
 });
 let contact2 = new Contact({
     name: "fgdf",
-    telephone: "946230",
+    telephone: "945452230",
     age: 49
 });
 // Usaremos una promesa de guardar para guardarla en la base de datos.
-/*let p1 = contact1.save().then(result => {
+let p1 = contact1.save().then(result => {
     console.log("Contact added:", result);
 }).catch(error => {
     console.log("ERROR adding contact:", error);
-});
-/*
-let p2 = contact2.save().then(result => {
+});*/
+
+/*let p2 = contact2.save().then(result => {
     console.log("Contact added:", result);
 }).catch(error => {
     console.log("ERROR adding contact:", error);
 });*/
 
 // search with find
-/*let p3=Contact.find().then(result=>{
+let p3=Contact.find().then(result=>{
     console.log(result);
     }).catch(error=>{
     console.log("ERROR:",error);
-    });*/
+    });
 
 // find with parameters
+/*
 let p3 = Contact.find({ name: 'Boris', age: 49 }).then(result => {
     console.log(result);
 }).catch(error => {
     console.log("ERROR:", error);
-});
+});*/
 //actualizar
-let p5 = Contact.findByIdAndUpdate('60128ac4864877290ad8a508',
-    { name: " Boris Anaya Moreno", age: 51 }, { new: true })
+/*let p5 = Contact.findByIdAndUpdate('6016c8be40b9dc05ff2fd40f',
+    { name: " Boris ", age: 51,telephone : "666666" }, { new: true })
     .then(result => {
         console.log("Modified contact:", result);
     }).catch(error => {
         console.log("ERROR:", error);
-    });
+    });*/
 // debemos esperar a que finalicen todas las promesas, ya que son asincrónicas
 // para cerrar la conexión a la base de datos, Promise.all permite consultar el
-// promesas pasadas como parámetro para ver si han terminado:
+// promesas pasadas como parámetro para ver si han terminado:*/
+
 Promise.all([p3]).then(values => {
     mongoose.connection.close();
 });
