@@ -1,6 +1,13 @@
 //entramos al shell
 mongo
-use contacts - create bdd
+show dbs -- ver las bbdd
+use contacts --para crear la bbdd
 db.createCollection("contacts")- create tablas
 db.contacts.find()- select
 db.contacts.remove({name:{"Boris"}) --delete
+
+
+
+
+
+

@@ -1,5 +1,5 @@
 {
-  "name": "ejercicioconficheros",
+  "name": "ejercicio1",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "electron": "^11.2.0"
+    "electron": "^11.2.1",
+    "mongoose": "^5.11.14",
+    "xel": "0.0.230"
   }
 }

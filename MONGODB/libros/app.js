@@ -1,5 +1,9 @@
-//modulo soporta la lectura y escritura de archivos
-const fs = require('fs');
+const fs = require("fs")
+
+//leo el fichero
+let fichero = fs.readFileSync('./books.json')
+//analiza una cadena de texto como JSON, transformando opcionalmente  el valor producido por el análisis
+let librosparse = JSON.parse(fichero)
 
 // we load moongose
 const mongoose = require('mongoose');
@@ -17,61 +21,49 @@ mongoose.connect(url1, {
 }).catch((err) => {
     console.log('errror en la conexion de la bbdd')
 })
+
+
 //bbdd
 let bookSchema = new mongoose.Schema({
     "title": {
         type: String,
         required: true,
         minlength: 1,
-        unique: true,
+        trim: true
     },
     "author": {
         type: String,
         required: true,
         minlength: 1,
+        trim: true
     },
     "img": {
         type: String,
         required: true,
-
+        unique: true,
+        trim: true
     }
 });
 
 // asociamos asi una collection en la bbdd
 let Books = mongoose.model('books', bookSchema);
 
-// add documents
-// first we create the contact
-/*let book1 = new Books({
-    title :"Q",
-    author :"Luther Blissett",
-    img : "0.jpg"
-});*/
-let book2 = new Books({
-    title: "Love in times of anger",
-    author: "Gabriel Garcia Marquez",
-    img: "1.jpg"
-
+let p1;
+librosparse.forEach(books => {
+    let variablelibro = new Books();
+    variablelibro.title = books.title;
+    variablelibro.author = books.author;
+    libro.img = books.img;
+    p1 = libro.save().then(resultado => {
+        console.log("boook is added", resultado);
+    }).catch(error =>{
+        console.log("error adding book")
+    })
 });
 
-// Usaremos una promesa de guardar para guardarla en la base de datos.
-let b2 = book2.save().then(result => {
-    console.log("book added:", result);
-}).catch(error => {
-    console.log("ERROR adding book:", error);
-});
-
-// debemos esperar a que finalicen todas las promesas, ya que son asincrónicas
-// para cerrar la conexión a la base de datos, Promise.all permite consultar el
-// promesas pasadas como parámetro para ver si han terminado:
-Promise.all([b2]).then(values => {
+Promise.all([p1]).then(values => {
     mongoose.connection.close();
-
 });
-
-fs.writeFileSync('libros.json', b2);
-
-
 
 
 
