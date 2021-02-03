@@ -1,5 +1,5 @@
 {
-  "name": "ejercicio1",
+  "name": "ejercicio1.2",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "electron": "^11.2.1",
+    "electron": "^11.2.2",
     "mongoose": "^5.9.18",
     "xel": "0.0.230"
   }

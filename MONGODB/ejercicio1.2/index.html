@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>libros</title>
+    <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="stylesheet" href="./css/photon.css">
+    <link rel="stylesheet" href="node_modules/xel/themes/material.css">
+    <script src="./node_modules/xel/xel.min.js"></script>
+</head>
+
+<body>
+    <div class="window">
+        <header class="toolbar toolbar-header">
+        </header>
+        <div class="window-content">
+            <div class="pane-group">
+
+                <!--panel imágenes-->
+                <div class="pane">
+                    <div class="wrapper" id="wrapper">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--Añadimos un pie para poner los botones-->
+        <footer class="toolbar toolbar-footer">
+            <x-box>
+                <x-button skin="textured" style="margin-left: 25%;">
+                    <x-label>Busquedas</x-label>
+                    <x-icon name="camera"></x-icon>
+                    <dialog>
+                        <x-box vertical style="margin-left: 50px; margin-top: 20px;">
+                            <x-box>
+                                <x-input skin="flat" id="txtBuscar">
+                                    <x-icon name="search"></x-icon>
+                                    <x-label>Busqueda por libros</x-label>
+                                </x-input>
+
+                                <x-button id="btnBuscar">
+                                    <x-icon name="search"></x-icon>
+                                </x-button>
+                            </x-box>
+                        </x-box>
+                    </dialog>
+                </x-button>
+                <x-button skin="textured" style="margin-left: 10px;">
+                    <x-label>Todos</x-label>
+                    <x-icon name="home"></x-icon>
+                </x-button>
+
+
+            </x-box>
+        </footer>
+    </div>
+
+    <script>require('./app.js')</script>
+</body>
+
+</html>

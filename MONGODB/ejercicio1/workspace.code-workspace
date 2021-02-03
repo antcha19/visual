@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../../../Electron/MainRenderer"
+		},
+		{
+			"path": "../../../Electron"
+		},
+		{
+			"path": "../.."
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true
+	}
+}

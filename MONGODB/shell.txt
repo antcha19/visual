@@ -7,6 +7,10 @@ db.contacts.find()- select
 db.contacts.remove({name:{"Boris"}) --delete
 
 
+//instalar una version especifica
+npm install --save mongoose@5.9.18
+
+
 
 
 

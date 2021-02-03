@@ -53,7 +53,7 @@ librosparse.forEach(books => {
     let variablelibro = new Books();
     variablelibro.title = books.title;
     variablelibro.author = books.author;
-    libro.img = books.img;
+    variablelibro.img = books.img;
     p1 = libro.save().then(resultado => {
         console.log("boook is added", resultado);
     }).catch(error =>{

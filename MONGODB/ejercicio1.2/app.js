@@ -6,7 +6,7 @@ mongoose.connect('mongodb://localhost:27017/books', {
     useUnifiedTopology: true
 });
 //esquema
-let bookSchema = new mongoose.Schema({
+let librosSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
@@ -29,26 +29,22 @@ let bookSchema = new mongoose.Schema({
 });
 
 //modelo
-let Books = mongoose.model('books', bookSchema);
+let Libro = mongoose.model('books', librosSchema);
 
-//busqueda con find
-let p1 = Books.find().then(resultado => {
-    inicio(resultado);
-}).catch(error => {
-    console.log("ERROR en find");
-});
-
-const inicio = (books => {
+//busqueda con find
+let p1 = Libro.find().then(resultado => {
     let cadenaDOM = "";
-    books.forEach(book => {
+    resultado.forEach(book => {
         cadenaDOM +=
             `<div>
-                <x-box vertical>
-                    <img src="./images/${book.img}" height="170" width="108">
-                    <x-label><strong>${book.title}</strong></x-label>
-                    <x-label>${book.author}</x-label>
-                </x-box>
-            </div>`;
+                <x-box vertical>
+                    <img src="./images/${book.img}" height="170" width="108">
+                    <x-label><strong>${book.title}</strong></x-label>
+                    <x-label>${book.author}</x-label>
+                </x-box>
+            </div>`;
     });
     document.getElementById("wrapper").innerHTML = cadenaDOM;
-})
+}).catch(error => {
+    console.log("ERROR en find");
+});
