@@ -34,23 +34,65 @@
                     <x-icon name="camera"></x-icon>
                     <dialog>
                         <x-box vertical style="margin-left: 50px; margin-top: 20px;">
-                            <x-box>
-                                <x-input skin="flat" id="txtBuscar">
-                                    <x-icon name="search"></x-icon>
-                                    <x-label>Busqueda por libros</x-label>
-                                </x-input>
-
-                                <x-button id="btnBuscar">
-                                    <x-icon name="search"></x-icon>
-                                </x-button>
+                            <x-box vertical >
+                                <x-box>
+                                    <x-input skin="flat" id="txtBuscar">
+                                        <x-icon name="search"></x-icon>
+                                        <x-label>Busqueda por libros</x-label>
+                                    </x-input>
+                                    <br>
+                                    <br>
+                                    <x-button id="btnBuscar">
+                                        <x-icon name="search"></x-icon>
+                                    </x-button>
+                                </x-box>
+                                <x-box>
+                                    <x-input skin="flat" id="txtAutor">
+                                        <x-icon name="search"></x-icon>
+                                        <x-label>Busqueda por Autor</x-label>
+                                    </x-input>
+                                    <x-button id="btnBuscar1">
+                                        <x-icon name="search"></x-icon>
+                                    </x-button>
+                                </x-box>
                             </x-box>
                         </x-box>
                     </dialog>
                 </x-button>
-                <x-button skin="textured" style="margin-left: 10px;">
+                <x-button skin="textured" id="txtTodos" style="margin-left: 10px;">
                     <x-label>Todos</x-label>
                     <x-icon name="home"></x-icon>
                 </x-button>
+                <x-button skin="textured" id="txtNuevo" style="margin-left: 10px;">
+                    <x-label>Nuevo libro</x-label>
+                    <x-icon name="book"></x-icon>
+
+                    <dialog>
+                        <x-box vertical style="margin-left: 50px; margin-top: 50px;">
+                            <x-box vertical >
+                                
+                                    <x-input skin="flat" id="txtNuevoLibro">
+                                        <x-icon name="book"></x-icon>
+                                        <x-label>Titulo nuevo libro</x-label>
+                                    </x-input>
+                                
+                                    <x-input skin="flat" id="txtNuevoAutor">
+                                        <x-icon name="face"></x-icon>
+                                        <x-label> Nuevo Autor</x-label>
+                                    </x-input>
+                                    <x-input skin="flat" id="txtImagen">
+                                        <x-icon name="search"></x-icon>
+                                        <x-label>Imagen nueva </x-label>
+                                    </x-input>
+                                    <x-button id="btnCargar" style="margin-top: 50px;" >
+                                        <x-icon name="archive"></x-icon>
+                                    </x-button>
+                                </x-box>
+                            </x-box>
+                        </x-box>
+                    </dialog>
+                </x-button>
+
 
 
             </x-box>
