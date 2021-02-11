@@ -60,6 +60,23 @@ document.getElementById("btnCargar").addEventListener('click', () => {
     });
 })
 
+//borrar
+document.getElementById("btnborrar").addEventListener('click', () => {
+    let txtBorrar = document.getElementById('txtborrar').value;
+    
+    Libro.remove({title:txtBorrar}).then(result => {
+         let notificacion = document.querySelector("#notification");
+         notificacion.innerHTML = "Libro Borrado";
+         notificacion.opened= true;
+       
+    }).catch(error => {
+        let notificacion = document.querySelector("#notification");
+         notificacion.innerHTML = "No se ha podido borrar el libro";
+         notificacion.opened= true;
+    });
+    mostrartodos();
+})
+
 
 
 
@@ -101,7 +118,6 @@ document.getElementById("btnBuscar").addEventListener('click', () => {
     });
 })
 
-//buscar todos
 todos.addEventListener('click', () => {
     Libro.find().then(resultado => {
         let cadenaDOM = "";
@@ -141,5 +157,7 @@ document.getElementById("btnBuscar1").addEventListener('click', () => {
     }).catch(error => {
         console.log("ERROR en find");
     });
+
+    
 })
 
