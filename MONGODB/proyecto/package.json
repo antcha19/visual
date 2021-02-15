@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "electron": "^11.2.3",
-    "mongoose": "^5.9.18"
+    "mongoose": "^5.9.18",
+    "xel": "^0.0.230"
   }
 }

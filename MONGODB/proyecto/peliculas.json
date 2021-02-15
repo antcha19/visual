@@ -1,0 +1,52 @@
+[
+    {
+        "title": "Interestellar",
+        "director": "CHRISTOPHER NOLAN",
+        "portada": "0.jpg"
+    },
+    {
+        "title": "Indiana Jones",
+        "director": "Steven Spielberg",
+        "portada": "1.jpg"
+    },
+    {
+        "title": "El lobo de Wall Street",
+        "director": "Martin Scorsesse",
+        "portada": "2.jpg"
+    },
+    {
+        "title": "Una odisea en el espacio",
+        "director": "STANLEY KUBRICK",
+        "portada": "3.jpg"
+    },
+    {
+        "title": "Los cazafantasmas",
+        "director": "Ivan Reitman",
+        "portada": "4.jpg"
+    },
+    {
+        "title": "Regreso al futuro",
+        "director": "Art Spiegelman",
+        "portada": "5.jpg"
+    },
+    {
+        "title": "Top Gun",
+        "director": "Tony Scott",
+        "img": "6.jpg"
+    },
+    {
+        "title": "Solo en casa",
+        "director": "Chris Columbus",
+        "portada": "7.jpg"
+    },
+    {
+        "title": "Aladdin",
+        "director": "Ron Clements, John Musker",
+        "portada": "8.jpg"
+    },
+    {
+        "title": "Jurassic Park",
+        "director": "Steven Spielberg",
+        "portada": "9.jpg"
+    }
+]
