@@ -1,4 +1,6 @@
 const fs = require("fs")
+let salir = document.getElementById("idsalir");
+let nueva = document.getElementById("nueva");
 
 //leo el fichero
 let fichero = fs.readFileSync('./peliculas.json')
@@ -43,7 +45,7 @@ let variablePeliculas = mongoose.model('peliculas', peliculasSchema);
 mostrartodos();
 
 //inserto desde un json
-/*let p1;
+let p1;
 peliparse.forEach(peli => {
     let variablepeli = new Books();
     variablepeli.title = peli.title;
@@ -58,7 +60,7 @@ peliparse.forEach(peli => {
 
 Promise.all([p1]).then(values => {
     mongoose.connection.close();
-});*/
+});
 
 
 //insertar
@@ -93,17 +95,27 @@ function mostrartodos() {
         resultado.forEach(pelicula => {
             cadenaDOM +=
                 `<div>
-                    <x-box vertical>
-                        <img src="./images/${pelicula.portada}" height="170" width="108">
+                    <table vertical>
+                        <img src="./images/${pelicula.portada}" height="200" width="138">
                         <x-label><strong>${pelicula.title}</strong></x-label>
                         <x-label>${pelicula.director}</x-label>
-                    </x-box>
+                    </table>
                 </div>`;
         });
         document.getElementById("wrapper").innerHTML = cadenaDOM;
     }).catch(error => {
         console.log("ERROR en find");
     });
+}
+
+
+//funcion salir
+salir.addEventListener('click', (event) =>{
+    close()
+})
+
+nueva.addEventListener('click', (event) =>{
+    
 }
 
 
