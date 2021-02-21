@@ -114,9 +114,6 @@ salir.addEventListener('click', (event) =>{
     close()
 })
 
-nueva.addEventListener('click', (event) =>{
-    
-}
 
 
 
