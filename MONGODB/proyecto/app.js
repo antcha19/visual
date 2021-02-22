@@ -4,7 +4,8 @@ let actualizarbbdd = document.getElementById("actualizar");
 
 //leo el fichero
 let fichero = fs.readFileSync('./peliculas.json')
-//analiza una cadena de texto como JSON, transformando opcionalmente  el valor producido por el análisis
+//analiza una cadena de texto como JSON, 
+//transformando opcionalmente  el valor producido por el análisis
 let peliparse = JSON.parse(fichero)
 
 const mongoose = require('mongoose');
@@ -86,6 +87,8 @@ document.getElementById("btnCargar").addEventListener('click', () => {
         mongoose.connection.close();
     });
     mostrartodos();
+    limpiar();
+
 })
 
 
@@ -99,9 +102,10 @@ function mostrartodos() {
                 `<div>
                     <table vertical>
                         <img src="./images/${pelicula.portada}" height="300" width="238">
+                        <a href="./images/${pelicula.portada}" target="_blank">
                         <x-label><strong>${pelicula.title}</strong></x-label>
                         <x-label>${pelicula.director}</x-label>
-                        <a href="./images/${pelicula.portada}"/>
+                        
                     </table>
                 </div>`;
         });
@@ -112,9 +116,9 @@ function mostrartodos() {
 }
 
 //buscar por director
-document.getElementById("btnBuscardirector").addEventListener('click', () => {
-    let textdirector = document.getElementById('txtBuscarDirector').value;
-    Peliculamodelo.find({ author: { $regex: '.*' + textdirector + '.*' } }).then(resultado => {
+document.getElementById("btnBuscarPeli").addEventListener('click', () => {
+    let textdirector = document.getElementById('txtBuscarpeli').value;
+    Peliculamodelo.find({ title: { $regex: '.*' + textdirector + '.*' } }).then(resultado => {
         let cadenaDOM = "";
         resultado.forEach(pelicula => {
             cadenaDOM +=
@@ -130,25 +134,25 @@ document.getElementById("btnBuscardirector").addEventListener('click', () => {
     }).catch(error => {
         console.log("error al buscar por el director")
     });
-
+    limpiar();
 })
 
 //borrar
 //borrar
 document.getElementById("btnborrar").addEventListener('click', () => {
     let txtBorrar = document.getElementById('txtborrar').value;
-    
-    Peliculamodelo.remove({title:txtBorrar}).then(result => {
-         let notificacion = document.querySelector("#notification");
-         notificacion.innerHTML = "Pelicula Borrada";
-         notificacion.opened= true;
-       
+
+    Peliculamodelo.remove({ title: txtBorrar }).then(result => {
+        let notificacion = document.querySelector("#notification");
+        notificacion.innerHTML = "Pelicula Borrada";
+        notificacion.opened = true;
     }).catch(error => {
         let notificacion = document.querySelector("#notification");
-         notificacion.innerHTML = "No se ha podido borrar";
-         notificacion.opened= true;
+        notificacion.innerHTML = "No se ha podido borrar";
+        notificacion.opened = true;
     });
     mostrartodos();
+    limpiar();
 })
 
 
@@ -166,7 +170,14 @@ actualizarbbdd.addEventListener('click', (event) => {
     mostrartodos();
 })
 
-
+//funcion limpiar
+function limpiar() {
+    document.getElementById('txtborrar').value = "";
+    document.getElementById('txtNuevapeli').value = "";
+    document.getElementById('txtNuevoDirector').value = "";
+    document.getElementById('txtImagen').value = "";
+    document.getElementById('txtBuscarpeli').value = "";
+}
 
 
 
