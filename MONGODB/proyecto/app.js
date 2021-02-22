@@ -1,6 +1,6 @@
 const fs = require("fs")
 let salir = document.getElementById("idsalir");
-let nueva = document.getElementById("nueva");
+let actualizarbbdd = document.getElementById("actualizar");
 
 //leo el fichero
 let fichero = fs.readFileSync('./peliculas.json')
@@ -40,14 +40,14 @@ let peliculasSchema = new mongoose.Schema({
         trim: true
     }
 });
-
-let variablePeliculas = mongoose.model('peliculas', peliculasSchema);
+//modelo
+let Peliculamodelo = mongoose.model('peliculas', peliculasSchema);
 mostrartodos();
 
-//inserto desde un json
+/*//inserto desde un json
 let p1;
 peliparse.forEach(peli => {
-    let variablepeli = new Books();
+    let variablepeli = new Peliculamodelo();
     variablepeli.title = peli.title;
     variablepeli.director = peli.director;
     variablepeli.portada = peli.portada;
@@ -57,22 +57,23 @@ peliparse.forEach(peli => {
         console.log("error adding book")
     })
 });
+*/
 
-Promise.all([p1]).then(values => {
-    mongoose.connection.close();
-});
+//Promise.all([p1]).then(values => {
+//   mongoose.connection.close();
+//});
 
 
 //insertar
 document.getElementById("btnCargar").addEventListener('click', () => {
-    let txtNuevoLibro = document.getElementById('txtNuevoLibro').value;
-    let txtNuevoAutor = document.getElementById('txtNuevoAutor').value;
+    let txtNuevapeli = document.getElementById('txtNuevapeli').value;
+    let txtNuevoDirector = document.getElementById('txtNuevoDirector').value;
     let txtImagen = document.getElementById('txtImagen').value;
 
     //insertamos el libro
-    let peliculas = new variablePeliculas({
-        title: txtNuevoLibro,
-        director: txtNuevoAutor,
+    let peliculas = new Peliculamodelo({
+        title: txtNuevapeli,
+        director: txtNuevoDirector,
         portada: txtImagen
     })
     let p1 = peliculas.save().then(result => {
@@ -81,16 +82,17 @@ document.getElementById("btnCargar").addEventListener('click', () => {
         console.log("ERROR :", error);
     });
     //
-   Promise.all([p1]).then(values => {
+    Promise.all([p1]).then(values => {
         mongoose.connection.close();
     });
+    mostrartodos();
 })
 
 
 
 //busqueda con find
 function mostrartodos() {
-    variablePeliculas.find().then(resultado => {
+    Peliculamodelo.find().then(resultado => {
         let cadenaDOM = "";
         resultado.forEach(pelicula => {
             cadenaDOM +=
@@ -108,12 +110,60 @@ function mostrartodos() {
     });
 }
 
+//buscar por director
+document.getElementById("btnBuscardirector").addEventListener('click', () => {
+    let textdirector = document.getElementById('txtBuscarDirector').value;
+    Peliculamodelo.find({ author: { $regex: '.*' + textdirector + '.*' } }).then(resultado => {
+        let cadenaDOM = "";
+        resultado.forEach(pelicula => {
+            cadenaDOM +=
+                `<div>
+                    <table vertical>
+                        <img src="./images/${pelicula.portada}" height="200" width="138">
+                        <x-label><strong>${pelicula.title}</strong></x-label>
+                        <x-label>${pelicula.director}</x-label>
+                    </table>
+                </div>`;
+        });
+        document.getElementById("wrapper").innerHTML = cadenaDOM;
+    }).catch(error => {
+        console.log("error al buscar por el director")
+    });
+
+})
+
+//borrar
+//borrar
+document.getElementById("btnborrar").addEventListener('click', () => {
+    let txtBorrar = document.getElementById('txtborrar').value;
+    
+    Peliculamodelo.remove({title:txtBorrar}).then(result => {
+         let notificacion = document.querySelector("#notification");
+         notificacion.innerHTML = "Pelicula Borrada";
+         notificacion.opened= true;
+       
+    }).catch(error => {
+        let notificacion = document.querySelector("#notification");
+         notificacion.innerHTML = "No se ha podido borrar";
+         notificacion.opened= true;
+    });
+    mostrartodos();
+})
+
+
+
+
+
 
 //funcion salir
-salir.addEventListener('click', (event) =>{
+salir.addEventListener('click', (event) => {
     close()
 })
 
+//funcion actualizar
+actualizarbbdd.addEventListener('click', (event) => {
+    mostrartodos();
+})
 
 
 
