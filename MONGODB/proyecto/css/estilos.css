@@ -5,11 +5,12 @@
 }
 
 .wrapper > div {
-    border: 2px solid #8a8585;
-    border-radius: 5px;
+    border: 20px solid #8a8585;
+    border-radius: 50px;
     background-color: #ffffff;
     padding: 1em;
     color: #0e0d0d;
+    text-align:center;
 }
 .wrapper {
   display: contents;

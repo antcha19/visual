@@ -98,9 +98,10 @@ function mostrartodos() {
             cadenaDOM +=
                 `<div>
                     <table vertical>
-                        <img src="./images/${pelicula.portada}" height="200" width="138">
+                        <img src="./images/${pelicula.portada}" height="300" width="238">
                         <x-label><strong>${pelicula.title}</strong></x-label>
                         <x-label>${pelicula.director}</x-label>
+                        <a href="./images/${pelicula.portada}"/>
                     </table>
                 </div>`;
         });

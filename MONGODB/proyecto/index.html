@@ -13,80 +13,92 @@
 <body>
     <div class="window">
         <header class="toolbar toolbar-header">
-            <x-box>
-                <x-button skin="textured" style="margin-left: 1%;">
-                    <x-label>Buscar</x-label>
-                    <x-icon name="search"></x-icon>
-                    <dialog>
-                        <x-box vertical style="margin-left: 50px; margin-top: 20px;">
-                            <x-box vertical>
-                                <x-box>
-                                    <x-label>Introduce el nombre del director</x-label>
-                                    <x-input skin="flat" id="txtBuscarDirector">
-                                        <x-icon name="search"></x-icon>
-                                    </x-input>
-                                    <x-button id="btnBuscardirector">
-                                        <x-icon name="search"></x-icon>
+            <x-tabs>
+                <x-box>
+                    <x-button skin="textured" style="margin-left: 1%;">
+                        <x-label>Buscar</x-label>
+                        <x-icon name="search"></x-icon>
+                        <dialog>
+                            <x-box vertical style="margin-left: 50px; margin-top: 20px;">
+                                <x-box vertical>
+                                    <x-box>
+                                        <x-label>Introduce el nombre del director</x-label>
+                                        <x-input skin="flat" id="txtBuscarDirector">
+                                            <x-icon name="search"></x-icon>
+                                        </x-input>
+                                        <x-button id="btnBuscardirector">
+                                            <x-icon name="search"></x-icon>
+                                        </x-button>
+
+                                    </x-box>
+                                    <x-button onclick="this.closest('dialog').close()" style="margin-left: 240px;">
+                                        <x-label style="color: rgb(16, 238, 164);">Cancelar</x-label>
                                     </x-button>
                                 </x-box>
                             </x-box>
-                        </x-box>
-                    </dialog>
-                </x-button>
-                <x-button id="actualizar" style="margin-left: 10px;">
-                    <x-label>Actualizar Bbdd</x-label>
-                    <x-icon name="home"></x-icon>
-                </x-button>
-                <!--boton insertar-->
-                <x-button id="txtNuevo" style="margin-left: 10px;">
-                    <x-label>Insertar Pelicula</x-label>
-                    <x-icon name="book"></x-icon>
+                        </dialog>
+                    </x-button>
 
-                    <dialog>
-                        <x-label style="margin-left: 100px; margin-top: 20px;"> Insertar nueva Pelicula</x-label>
-                        <x-box vertical style="margin-left: 50px; margin-top: 50px;">
-                            <x-box vertical>
+                    <x-button id="actualizar" style="margin-left: 10px;">
+                        <x-label>Actualizar Bbdd</x-label>
+                        <x-icon name="home"></x-icon>
+                    </x-button>
+                    <!--boton insertar-->
+                    <x-button id="txtNuevo" style="margin-left: 10px;">
+                        <x-label>Insertar Pelicula</x-label>
+                        <x-icon name="book"></x-icon>
 
-                                <x-input id="txtNuevapeli">
-                                    <x-icon name="book"></x-icon>
+                        <dialog>
+                            <x-label style="margin-left: 100px; margin-top: 20px;"> Insertar nueva Pelicula</x-label>
+                            <x-box vertical style="margin-left: 50px; margin-top: 50px;">
+                                <x-box vertical>
 
+                                    <x-input id="txtNuevapeli">
+                                        <x-icon name="book"></x-icon>
+
+                                    </x-input>
+
+                                    <x-input id="txtNuevoDirector">
+                                        <x-icon name="face"></x-icon>
+
+                                    </x-input>
+                                    <x-input id="txtImagen">
+                                        <x-icon name="search"></x-icon>
+                                        <x-label>Imagen nueva </x-label>
+                                    </x-input>
+                                    <x-button id="btnCargar" style="margin-top: 50px;">
+                                        <x-icon name="archive"></x-icon>
+                                    </x-button>
+                                    <x-button onclick="this.closest('dialog').close()" style="margin-left: 240px;">
+                                        <x-label style="color: rgb(16, 238, 164);">Cancelar</x-label>
+                                    </x-button>
+                                </x-box>
+                            </x-box>
+                        </dialog>
+                    </x-button>
+                    <!--boton borrar-->
+                    <x-button skin="textured" id="txtBorrar">
+                        <x-label>Borrar</x-label>
+                        <x-icon name="book"></x-icon>
+                        <dialog>
+                            <x-box vertical style="margin-left: 50px; margin-top: 10px;">
+                                <x-label>Introduce nombre de la Pelicula que quiere borrar</x-label>
+                                <x-input skin="flat" id="txtborrar">
                                 </x-input>
-
-                                <x-input id="txtNuevoDirector">
-                                    <x-icon name="face"></x-icon>
-
-                                </x-input>
-                                <x-input id="txtImagen">
+                                <x-button id="btnborrar">
                                     <x-icon name="search"></x-icon>
-                                    <x-label>Imagen nueva </x-label>
-                                </x-input>
-                                <x-button id="btnCargar" style="margin-top: 50px;">
-                                    <x-icon name="archive"></x-icon>
+                                </x-button>
+                                <x-button onclick="this.closest('dialog').close()" style="margin-left: 240px;">
+                                    <x-label>Cancelar</x-label>
                                 </x-button>
                             </x-box>
-                        </x-box>
-                    </dialog>
-                </x-button>
-                <!--boton borrar-->
-                <x-button skin="textured" id="txtBorrar">
-                    <x-label>Borrar</x-label>
-                    <x-icon name="book"></x-icon>
-                    <dialog>
-                        <x-box vertical  style="margin-left: 50px; margin-top: 10px;" >
-                            <x-label >Introduce nombre del libro a borrar</x-label>
-                            <x-input skin="flat" id="txtborrar">
-                            </x-input>
-                            <x-button id="btnborrar">
-                                <x-icon name="search"></x-icon>
-                            </x-button>
-                        </x-box>
-                    </dialog>
-                </x-button>
-            </x-box>
+                        </dialog>
+                    </x-button>
+                </x-box>
 
 
 
-
+            </x-tabs>
         </header>
         <div class="window-content">
             <div class="pane-group">
@@ -94,10 +106,8 @@
                 <!--panel imágenes-->
                 <div class="pane">
                     <div class="wrapper" id="wrapper">
-
                     </div>
                 </div>
-
             </div>
         </div>
         <!--Añadimos un pie para poner los botones-->
@@ -105,17 +115,12 @@
             <x-tabs>
                 <x-tab selected id="nueva">
                     <x-label>Peliculas</x-label>
-
                 </x-tab>
                 <!--boton salir-->
                 <x-tab id="idsalir">
                     <x-label>Salir</x-label>
                 </x-tab>
-
-
             </x-tabs>
-
-
         </footer>
     </div>
     <x-notification id="notification" timeout="2000"></x-notification>
