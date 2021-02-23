@@ -15,22 +15,20 @@
         <header class="toolbar toolbar-header">
             <x-tabs>
                 <x-box >
-                    <x-button  style="margin-left: 1%;">
-                        
-                        <x-label  >Buscar</x-label>
-                    
+
+
+                    <x-button style="margin-left: 1%;">
+                        <strong><x-label   class="icon icon-install" style="color: #107425; text-align: center;">Buscar</x-label></strong>
                         <dialog>
                             <x-box vertical style="margin-left: 50px; margin-top: 20px;">
                                 <x-box vertical>
                                     <x-box>
-                                        <x-label>Introduce el nombre de la Pelicula</x-label>
+                                        <x-label style="color: #107425;">Introduce el nombre de la Pelicula</x-label>
                                         <x-input  id="txtBuscarpeli">
-                                           
                                         </x-input>
                                         <x-button id="btnBuscarPeli">
-                                            <x-icon name="search"></x-icon>
+                                            <x-icon style="color: #107425;" name="search"></x-icon>
                                         </x-button>
-
                                     </x-box>
                                     <x-button onclick="this.closest('dialog').close()" style="margin-left: 240px;">
                                         <x-label style="color: rgb(18, 87, 1);">Cancelar</x-label>
@@ -40,29 +38,25 @@
                         </dialog>
                     </x-button>
 
-                     <!--boton update-->
+                    
+                    <!--boton update-->
                     <x-button id="actualizar" style="margin-left: 10px;" >
-                        <x-label class="icon icon-cloud"> Actualizar </x-label>
-                       
+                      <strong><x-label  class="icon icon-install" style="color: #107425; text-align: center;"> Actualizar </x-label></strong>
                     </x-button>
+
+                    
                     <!--boton insertar-->
                     <x-button   id="txtNuevo" style="margin-left: 10px;">
-                        <x-label class="icon icon-plus-circled"> Insertar </x-label>
-                        
-
+                        <strong><x-label  class="icon icon-install" style="color: #107425; text-align: center;"> Insertar </x-label></strong>
                         <dialog>
-                            <x-label style="margin-left: 100px; margin-top: 20px;"> Insertar nueva Pelicula</x-label>
+                            <x-label style="margin-left: 100px; margin-top: 20px; color: #107425;"> Insertar nueva Pelicula</x-label>
                             <x-box vertical style="margin-left: 50px; margin-top: 50px;">
                                 <x-box vertical>
-
                                     <x-input id="txtNuevapeli">
-                                        <x-icon name="book"></x-icon>
-
+                                        <x-icon ></x-icon>
                                     </x-input>
-
                                     <x-input id="txtNuevoDirector">
                                         <x-icon name="face"></x-icon>
-
                                     </x-input>
                                     <x-input id="txtImagen">
                                         <x-icon name="search"></x-icon>
@@ -71,26 +65,28 @@
                                         <x-icon name="archive"></x-icon>
                                     </x-button>
                                     <x-button onclick="this.closest('dialog').close()" style="margin-left: 240px;">
-                                        <x-label style="color: rgb(16, 238, 164);">Cancelar</x-label>
+                                       <strong><x-label style="color: #107425;">Cancelar</x-label></strong>
                                     </x-button>
                                 </x-box>
                             </x-box>
                         </dialog>
                     </x-button>
+
+
+
                     <!--boton borrar-->
                     <x-button  id="txtBorrar" style="margin-left: 10px;">
-                        <x-label class="icon icon-trash">Borrar</x-label>
-                        
+                        <strong> <x-label class="icon icon-install" style="color: #107425; text-align: center;">Borrar</x-label></strong>    
                         <dialog>
                             <x-box vertical style="margin-left: 50px; margin-top: 10px;">
-                                <x-label>Introduce nombre de la Pelicula que quiere borrar</x-label>
+                                <x-label style="color: #107425;">Introduce nombre de la Pelicula que quiere borrar</x-label>
                                 <x-input  id="txtborrar">
                                 </x-input>
                                 <x-button id="btnborrar">
                                     <x-icon name="search"></x-icon>
                                 </x-button>
                                 <x-button onclick="this.closest('dialog').close()" style="margin-left: 240px;">
-                                    <x-label>Cancelar</x-label>
+                                    <x-label style="color: #107425;">Cancelar</x-label>
                                 </x-button>
                             </x-box>
                         </dialog>
@@ -98,15 +94,8 @@
                     
                     <x-button  id="botonaudio" class="btn btn-default" style="margin-left: 90px;">
                         <span class="icon icon-play"></span>
-                        <audio src="/audio/Summer.mp3" >  
-                            Tu navegador no soporta el elemento <code>audio</code>.
-                          </audio>
-
                       </x-button>
                 </x-box>
-
-
-
             </x-tabs>
         </header>
         <div class="window-content">

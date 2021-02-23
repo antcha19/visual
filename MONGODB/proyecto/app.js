@@ -8,6 +8,7 @@ let fichero = fs.readFileSync('./peliculas.json')
 //transformando opcionalmente  el valor producido por el análisis
 let peliparse = JSON.parse(fichero)
 
+//conexion a la base de datos , local
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 //conexión
@@ -64,7 +65,7 @@ peliparse.forEach(peli => {
 //   mongoose.connection.close();
 //});
 
-
+mostrartodos();
 //insertar
 document.getElementById("btnCargar").addEventListener('click', () => {
     let txtNuevapeli = document.getElementById('txtNuevapeli').value;
@@ -86,12 +87,10 @@ document.getElementById("btnCargar").addEventListener('click', () => {
     Promise.all([p1]).then(values => {
         mongoose.connection.close();
     });
-    mostrartodos();
+    
     limpiar();
 
 })
-
-
 
 //busqueda con find
 function mostrartodos() {
