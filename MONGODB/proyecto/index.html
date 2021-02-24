@@ -15,11 +15,42 @@
         <header class="toolbar toolbar-header">
             <x-tabs>
                 <x-box >
+                    <!--boton insertar-->
+                    <x-button  skin="flat" id="txtNuevo" style="margin-left: 10px;">
+                        <strong><x-label  class="icon icon-install" style="color: white; text-align: center;"> Insertar </x-label></strong>
+                        <dialog style="text-align: center; background-color:#d1cece" >
+                           
+                            <x-box vertical style="margin-left: 50px; margin-top: 50px;">
+                                <x-box vertical>
+                                    <x-label style="color: #107425; ">Introduce el nombre de la Pelicula</x-label>
+                                    <x-input id="txtNuevapeli">
+                                        <x-icon  name="movie"></x-icon>
+                                    </x-input>
+                                    
+                                    <x-label style="color: #107425; margin-top: 20px;">Introduce el nombre del Director</x-label>
+                                    <x-input id="txtNuevoDirector">
+                                        <x-icon name="face"></x-icon>
+                                    </x-input>
+                                    <x-label style="color: #107425; margin-top: 20px;">Introduce la portada</x-label>
+                                    <x-input id="txtImagen">
+                                        <x-icon name="photo"></x-icon>
+                                    </x-input>
+                                    <x-button id="btnCargar" style="margin-top: 10px;">
+                                        <x-icon name="movie"></x-icon>
+                                    </x-button>
+                                    <x-button onclick="this.closest('dialog').close()" style="margin-left: 240px;">
+                                       <strong><x-label style="color: #107425;">Cancelar</x-label></strong>
+                                    </x-button>
+                                </x-box>
+                            </x-box>
+                        </dialog>
+                    </x-button>
 
 
-                    <x-button style="margin-left: 1%;">
-                        <strong><x-label   class="icon icon-install" style="color: #107425; text-align: center;">Buscar</x-label></strong>
-                        <dialog>
+                    <!--boton Film-->
+                    <x-button  skin="flat" style="margin-left: 1%;">
+                        <strong><x-label   class="icon icon-install" style="color:white; text-align: center;">Film</x-label></strong>
+                        <dialog style="text-align: center; background-color:#d1cece">
                             <x-box vertical style="margin-left: 50px; margin-top: 20px;">
                                 <x-box vertical>
                                     <x-box>
@@ -38,46 +69,39 @@
                         </dialog>
                     </x-button>
 
-                    
-                    <!--boton update-->
-                    <x-button id="actualizar" style="margin-left: 10px;" >
-                      <strong><x-label  class="icon icon-install" style="color: #107425; text-align: center;"> Actualizar </x-label></strong>
-                    </x-button>
-
-                    
-                    <!--boton insertar-->
-                    <x-button   id="txtNuevo" style="margin-left: 10px;">
-                        <strong><x-label  class="icon icon-install" style="color: #107425; text-align: center;"> Insertar </x-label></strong>
-                        <dialog>
-                            <x-label style="margin-left: 100px; margin-top: 20px; color: #107425;"> Insertar nueva Pelicula</x-label>
-                            <x-box vertical style="margin-left: 50px; margin-top: 50px;">
+                    <!--boton Director-->
+                    <x-button  skin="flat" style="margin-left: 1%;">
+                        <strong><x-label   class="icon icon-key" style="color:white; text-align: center;">Director</x-label></strong>
+                        <dialog style="text-align: center; background-color:#d1cece">
+                            <x-box vertical style="margin-left: 50px; margin-top: 20px;">
                                 <x-box vertical>
-                                    <x-input id="txtNuevapeli">
-                                        <x-icon ></x-icon>
-                                    </x-input>
-                                    <x-input id="txtNuevoDirector">
-                                        <x-icon name="face"></x-icon>
-                                    </x-input>
-                                    <x-input id="txtImagen">
-                                        <x-icon name="search"></x-icon>
-                                    </x-input>
-                                    <x-button id="btnCargar" style="margin-top: 50px;">
-                                        <x-icon name="archive"></x-icon>
-                                    </x-button>
+                                    <x-box>
+                                        <x-label style="color: #107425;">Introduce el nombre del Director</x-label>
+                                        <x-input  id="txtBuscardire">
+                                        </x-input>
+                                        <x-button id="btnBuscardire">
+                                            <x-icon style="color: #107425;" name="search"></x-icon>
+                                        </x-button>
+                                    </x-box>
                                     <x-button onclick="this.closest('dialog').close()" style="margin-left: 240px;">
-                                       <strong><x-label style="color: #107425;">Cancelar</x-label></strong>
+                                        <x-label style="color: rgb(18, 87, 1);">Cancel</x-label>
                                     </x-button>
                                 </x-box>
                             </x-box>
                         </dialog>
                     </x-button>
 
+                    
+                    <!--boton update-->
+                    <x-button  skin="flat" id="actualizar" style="margin-left: 10px;" >
+                      <strong><x-label  class="icon icon-install" style="color:white; text-align: center;"> All </x-label></strong>
+                    </x-button>
 
-
+                    
                     <!--boton borrar-->
-                    <x-button  id="txtBorrar" style="margin-left: 10px;">
-                        <strong> <x-label class="icon icon-install" style="color: #107425; text-align: center;">Borrar</x-label></strong>    
-                        <dialog>
+                    <x-button skin="flat" id="txtBorrar" style="margin-left: 10px;">
+                        <strong> <x-label class="icon icon-install" style="color: white; text-align: center;">Delete</x-label></strong>    
+                        <dialog style="text-align: center; background-color:#d1cece" >
                             <x-box vertical style="margin-left: 50px; margin-top: 10px;">
                                 <x-label style="color: #107425;">Introduce nombre de la Pelicula que quiere borrar</x-label>
                                 <x-input  id="txtborrar">
@@ -86,7 +110,7 @@
                                     <x-icon name="search"></x-icon>
                                 </x-button>
                                 <x-button onclick="this.closest('dialog').close()" style="margin-left: 240px;">
-                                    <x-label style="color: #107425;">Cancelar</x-label>
+                                    <x-label style="color: #107425;">Cancel</x-label>
                                 </x-button>
                             </x-box>
                         </dialog>

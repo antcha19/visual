@@ -50,10 +50,10 @@ let Books = mongoose.model('books', bookSchema);
 
 let p1;
 librosparse.forEach(books => {
-    let variablelibro = new Books();
-    variablelibro.title = books.title;
-    variablelibro.author = books.author;
-    variablelibro.img = books.img;
+    let libro = new Books();
+    libro.title = books.title;
+    libro.author = books.author;
+    libro.img = books.img;
     p1 = libro.save().then(resultado => {
         console.log("boook is added", resultado);
     }).catch(error =>{

@@ -46,25 +46,25 @@ let peliculasSchema = new mongoose.Schema({
 let Peliculamodelo = mongoose.model('peliculas', peliculasSchema);
 mostrartodos();
 
-/*//inserto desde un json
+
+/*
+//inserto desde un json
 let p1;
 peliparse.forEach(peli => {
-    let variablepeli = new Peliculamodelo();
-    variablepeli.title = peli.title;
-    variablepeli.director = peli.director;
-    variablepeli.portada = peli.portada;
+    let pelicula = new Peliculamodelo();
+    pelicula.title = peli.title;
+    pelicula.director = peli.director;
+    pelicula.portada = peli.portada;
     p1 = pelicula.save().then(resultado => {
-        console.log("boook is added", resultado);
+        console.log("movie is added", resultado);
     }).catch(error =>{
-        console.log("error adding book")
+        console.log("error adding movie")
     })
 });
+Promise.all([p1]).then(values => {
+   mongoose.connection.close();
+});
 */
-
-//Promise.all([p1]).then(values => {
-//   mongoose.connection.close();
-//});
-
 mostrartodos();
 //insertar
 document.getElementById("btnCargar").addEventListener('click', () => {
@@ -114,10 +114,31 @@ function mostrartodos() {
     });
 }
 
-//buscar por director
+//find movie
 document.getElementById("btnBuscarPeli").addEventListener('click', () => {
     let textdirector = document.getElementById('txtBuscarpeli').value;
     Peliculamodelo.find({ title: { $regex: '.*' + textdirector + '.*' } }).then(resultado => {
+        let cadenaDOM = "";
+        resultado.forEach(pelicula => {
+            cadenaDOM +=
+                `<div>
+                    <table vertical>
+                        <img src="./images/${pelicula.portada}" height="200" width="138">
+                        <x-label><strong>${pelicula.title}</strong></x-label>
+                        <x-label>${pelicula.director}</x-label>
+                    </table>
+                </div>`;
+        });
+        document.getElementById("wrapper").innerHTML = cadenaDOM;
+    }).catch(error => {
+        console.log("error al buscar por el director")
+    });
+    limpiar();
+})
+
+document.getElementById("btnBuscardire").addEventListener('click', () => {
+    let textdirector = document.getElementById('txtBuscardire').value;
+    Peliculamodelo.find({ director: { $regex: '.*' + textdirector + '.*' } }).then(resultado => {
         let cadenaDOM = "";
         resultado.forEach(pelicula => {
             cadenaDOM +=
