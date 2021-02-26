@@ -5,38 +5,38 @@
         "portada": "0.jpg"
     },
     {
-        "title": "Indiana Jones",
-        "director": "Steven Spielberg",
+        "title": "Tenet",
+        "director": "CHRISTOPHER NOLAN",
         "portada": "1.jpg"
     },
     {
-        "title": "El lobo de Wall Street",
-        "director": "Martin Scorsesse",
+        "title": "Greenland",
+        "director": "Ric Roman",
         "portada": "2.jpg"
     },
     {
-        "title": "Una odisea en el espacio",
-        "director": "STANLEY KUBRICK",
+        "title": "Adiós",
+        "director": "Paco",
         "portada": "3.jpg"
     },
     {
-        "title": "Los cazafantasmas",
-        "director": "Ivan Reitman",
+        "title": "Serenity",
+        "director": "Steven Knight",
         "portada": "4.jpg"
     },
     {
-        "title": "Regreso al futuro",
-        "director": "Art Spiegelman",
+        "title": "Wonder",
+        "director": "Stephen Chbosky",
         "portada": "5.jpg"
     },
     {
-        "title": "Top Gun",
-        "director": "Tony Scott",
+        "title": "Secuestro",
+        "director": "Mar Targarona",
         "img": "6.jpg"
     },
     {
-        "title": "Solo en casa",
-        "director": "Chris Columbus",
+        "title": "Joker",
+        "director": "Todd Phillips",
         "portada": "7.jpg"
     },
     {
@@ -45,8 +45,8 @@
         "portada": "8.jpg"
     },
     {
-        "title": "Jurassic Park",
-        "director": "Steven Spielberg",
+        "title": "Soul",
+        "director": "Pete Docter",
         "portada": "9.jpg"
     }
 ]
