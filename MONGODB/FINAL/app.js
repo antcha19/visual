@@ -1,6 +1,8 @@
 const fs = require("fs")
 
 let salir = document.getElementById("idsalir");
+let PaginaProductos =document.getElementById("paginaproductos");
+let PaginaClientes = document.getElementById("paginaclientes");
 
 
 
@@ -13,6 +15,11 @@ mongoose.connect('mongodb://localhost:27017/ferreteria', {
     useUnifiedTopology: true
 }).then(() => { console.log('connected') })
     .catch((err) => { console.log('error al conectarse a la bbdd ') })
+
+
+
+/*-----------------------------------cliente---------------------------------------------- */
+
 
 
 //esquema de la table cliente
@@ -61,6 +68,7 @@ let clientesSchema = new mongoose.Schema({
 let clientemodelo = mongoose.model('cliente', clientesSchema);
 mostrartodos();
 
+//anadir clientes
 document.getElementById("btnCargar").addEventListener('click', () => {
     let txtNuevodni = document.getElementById('txtnuevodni').value;
     let txtNuevonombre = document.getElementById('txtnuevonombre').value;
@@ -97,7 +105,7 @@ function mostrartodos() {
             cadenaDOM +=
                 `<div>
                     <table >
-                        <tr>
+                        <tr style="background-color:#567CE3 ;">
                             <th>DNI</th>
                             <th>Nombre</th>
                             <th>Apellidos</th>
@@ -127,6 +135,12 @@ function mostrartodos() {
 salir.addEventListener('click', (event) => {
     close()
 })
+
+//cambia de pagina a productos.html
+PaginaProductos.addEventListener('click', (event) => {
+    document.location.href= "productos.html";
+})
+
 
 
 

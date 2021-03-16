@@ -22,36 +22,29 @@
                            
                             <x-box vertical style="margin-left: 50px; margin-top: 50px;">
                                 <x-box vertical>
-                                    <x-label style="color: #107425; ">Introduce el DNI</x-label>
-                                    <x-input id="txtnuevodni">
+                                    <x-label style="color: #107425; ">Introduce Id del Producto</x-label>
+                                    <x-input id="txtnuevoid">
                                         <x-icon  name="movie"></x-icon>
                                     </x-input>
                                     
-                                    <x-label style="color: #107425; margin-top: 20px;">Introduce el nombre </x-label>
-                                    <x-input id="txtnuevonombre">
+                                    <x-label style="color: #107425; margin-top: 20px;">Introduce nombre del producto </x-label>
+                                    <x-input id="txtnuevoproducto">
                                         <x-icon name="face"></x-icon>
                                     </x-input>
 
-                                    <x-label style="color: #107425; margin-top: 20px;">Introduce el apellido</x-label>
-                                    <x-input id="txtnuevoapellidos">
+                                    <x-label style="color: #107425; margin-top: 20px;">Introduce el precio</x-label>
+                                    <x-input id="txtnuevoprecio">
                                         <x-icon name="photo"></x-icon>
                                     </x-input>
 
-                                    <x-label style="color: #107425; margin-top: 20px;">Introduce la edad del cliente </x-label>
-                                    <x-input id="txtnuevoedad">
+                                    <x-label style="color: #107425; margin-top: 20px;">Introduce la Stock </x-label>
+                                    <x-input id="txtnuevostock">
                                         <x-icon name="face"></x-icon>
                                     </x-input>
 
-                                    <x-label style="color: #107425; margin-top: 20px;">Introduce la direccion </x-label>
-                                    <x-input id="txtnuevodireccion">
-                                        <x-icon name="face"></x-icon>
-                                    </x-input>
 
-                                    <x-label style="color: #107425; margin-top: 20px;">Introduce el email </x-label>
-                                    <x-input id="txtnuevoemail">
-                                        <x-icon name="face"></x-icon>
-                                    </x-input>
-                                    <x-button id="btnCargar" style="margin-top: 10px;">
+                                    
+                                    <x-button id="btnCargarproducto" style="margin-top: 10px;">
                                         <x-icon name="movie"></x-icon>
                                     </x-button>
                                     <x-button onclick="this.closest('dialog').close()" style="margin-left: 240px;">
@@ -77,7 +70,6 @@
         </div>
         <!--Añadimos un pie para poner los botones-->
         <footer class="toolbar toolbar-footer">
-            
             <x-tabs>
                 <!--boton Clientes-->
                 <x-button skin="flat" id="paginaclientes" style="color: white;">
@@ -94,7 +86,7 @@
                 </x-button>
 
                 <!--boton compra-->
-                <x-button skin="flat" id="paginadevolucion" style="color: white;">
+                <x-button skin="flat" id="paginacompra" style="color: white;">
                     Realizar Devolucion
                 </x-button>
                 <!--boton salir-->
@@ -105,7 +97,7 @@
         </footer>
     </div>
     <x-notification id="notification" timeout="2000"></x-notification>
-    <script>require('./app.js')</script>
+    <script>require('./appProductos.js')</script>
 </body>
 
 </html>
