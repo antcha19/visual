@@ -7,6 +7,7 @@ let PaginaCompra = document.getElementById("paginacompra");
 let PaginaDevolucion = document.getElementById("paginadevolucion");
 
 
+
 //conexion a la base de datos , local
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
@@ -67,7 +68,7 @@ let clientesSchema = new mongoose.Schema({
 //modelo
 //añade una tabla cliente a la bbdd 
 let clientemodelo = mongoose.model('cliente', clientesSchema);
-mostrartodos();
+mostrartodosclientes();
 
 //anadir clientes
 document.getElementById("btnCargar").addEventListener('click', () => {
@@ -88,8 +89,10 @@ document.getElementById("btnCargar").addEventListener('click', () => {
     })
     let p1 = cliente.save().then(result => {
         console.log("nuevo cliente añadido:", result);
+        alert('Nuevo cliente añadido');
     }).catch(error => {
         console.log("ERROR al añadir al cliente :", error);
+        alert('ERROR al añadir al cliente ');
     });
     //
     Promise.all([p1]).then(values => {
@@ -99,7 +102,7 @@ document.getElementById("btnCargar").addEventListener('click', () => {
 
 
 //busqueda con find
-function mostrartodos() {
+function mostrartodosclientes() {
     clientemodelo.find().then(resultado => {
         let cadenaDOM = "";
         resultado.forEach(cliente => {
@@ -122,14 +125,20 @@ function mostrartodos() {
                             <td>${cliente.direccion}</td>
                             <td>${cliente.email}</td>
                         </tr>
+                        
                     </table>
+                   
                 </div>`;
+               
         });
+        
         document.getElementById("wrapper").innerHTML = cadenaDOM;
     }).catch(error => {
         console.log("ERROR en find");
     });
+   
 }
+
 
 
 //funcion salir
@@ -151,8 +160,6 @@ PaginaCompra.addEventListener('click', (event)  =>{
 PaginaDevolucion.addEventListener('click', (event) => {
     document.location.href="devolucion.html";
 })
-
-
 
 
 

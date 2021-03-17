@@ -62,6 +62,29 @@
                         </dialog>
                     </x-button>
 
+                    <!--boton borrar-->
+                    <x-button  skin="flat" id="txtNuevo" style="margin-left: 10px;">
+                        <strong><x-label  class="icon icon-install" style="color: white; text-align: center;"> Borrar </x-label></strong>
+                        <dialog style="text-align: center; background-color:#d1cece" >
+                            <x-box vertical style="margin-left: 50px; margin-top: 50px;">
+                                <x-box vertical>
+                                    <x-label style="color: #107425; ">Introduce el DNI</x-label>
+                                    <x-input id="txtnuevodni">
+                                        <x-icon  name="movie"></x-icon>
+                                    </x-input>
+                                    <x-button id="btnCargar" style="margin-top: 10px;">
+                                        <x-icon name="face"></x-icon>
+                                    </x-button>
+                                    <x-button onclick="this.closest('dialog').close()" style="margin-left: 240px;">
+                                       <strong><x-label style="color: #107425;">Cancelar</x-label></strong>
+                                    </x-button>
+                                </x-box>
+                            </x-box>
+                        </dialog>
+                    </x-button>
+
+
+
                 </x-box>
             </x-tabs>
         </header>
@@ -71,6 +94,7 @@
                 <!--panel imágenes-->
                 <div class="pane">
                     <div class="wrapper" id="wrapper">
+                       
                     </div>
                 </div>
             </div>
