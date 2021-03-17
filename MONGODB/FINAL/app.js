@@ -3,7 +3,8 @@ const fs = require("fs")
 let salir = document.getElementById("idsalir");
 let PaginaProductos =document.getElementById("paginaproductos");
 let PaginaClientes = document.getElementById("paginaclientes");
-
+let PaginaCompra = document.getElementById("paginacompra");
+let PaginaDevolucion = document.getElementById("paginadevolucion");
 
 
 //conexion a la base de datos , local
@@ -140,6 +141,18 @@ salir.addEventListener('click', (event) => {
 PaginaProductos.addEventListener('click', (event) => {
     document.location.href= "productos.html";
 })
+
+//cambia de pagina a compra.html
+PaginaCompra.addEventListener('click', (event)  =>{
+    document.location.href="compra.html";
+})
+
+//cambia de pagina
+PaginaDevolucion.addEventListener('click', (event) => {
+    document.location.href="devolucion.html";
+})
+
+
 
 
 

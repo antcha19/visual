@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Devolucion</title>
+    <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="stylesheet" href="./css/photon.css">
+    <link rel="stylesheet" href="node_modules/xel/themes/material.css">
+    <script src="./node_modules/xel/xel.min.js"></script>
+</head>
+
+<body>
+    <div class="window">
+        <header class="toolbar toolbar-header">
+            <x-tabs>
+                <x-box >
+                    <!--boton insertar-->
+                    <x-button  skin="flat" id="txtNuevo" style="margin-left: 10px;">
+                        <strong><x-label  class="icon icon-install" style="color: white; text-align: center;"> Insertar </x-label></strong>
+                        <dialog style="text-align: center; background-color:#d1cece" >
+                           
+                            <x-box vertical style="margin-left: 50px; margin-top: 50px;">
+                                <x-box vertical>
+                                    <x-label style="color: #107425; ">Introduce el DNI</x-label>
+                                    <x-input id="txtnuevodni">
+                                        <x-icon  name="movie"></x-icon>
+                                    </x-input>
+                                    
+                                    <x-label style="color: #107425; margin-top: 20px;">Introduce el nombre </x-label>
+                                    <x-input id="txtnuevonombre">
+                                        <x-icon name="face"></x-icon>
+                                    </x-input>
+
+                                    <x-label style="color: #107425; margin-top: 20px;">Introduce el apellido</x-label>
+                                    <x-input id="txtnuevoapellidos">
+                                        <x-icon name="photo"></x-icon>
+                                    </x-input>
+
+                                    <x-label style="color: #107425; margin-top: 20px;">Introduce la edad del cliente </x-label>
+                                    <x-input id="txtnuevoedad">
+                                        <x-icon name="face"></x-icon>
+                                    </x-input>
+
+                                    <x-label style="color: #107425; margin-top: 20px;">Introduce la direccion </x-label>
+                                    <x-input id="txtnuevodireccion">
+                                        <x-icon name="face"></x-icon>
+                                    </x-input>
+
+                                    <x-label style="color: #107425; margin-top: 20px;">Introduce el email </x-label>
+                                    <x-input id="txtnuevoemail">
+                                        <x-icon name="face"></x-icon>
+                                    </x-input>
+                                    <x-button id="btnCargar" style="margin-top: 10px;">
+                                        <x-icon name="movie"></x-icon>
+                                    </x-button>
+                                    <x-button onclick="this.closest('dialog').close()" style="margin-left: 240px;">
+                                       <strong><x-label style="color: #107425;">Cancelar</x-label></strong>
+                                    </x-button>
+                                </x-box>
+                            </x-box>
+                        </dialog>
+                    </x-button>
+
+                </x-box>
+            </x-tabs>
+        </header>
+        <div class="window-content">
+            <div class="pane-group">
+
+                <!--panel imágenes-->
+                <div class="pane">
+                    <div class="wrapper" id="wrapper">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Añadimos un pie para poner los botones-->
+        <footer class="toolbar toolbar-footer">
+            
+            <x-tabs>
+                <!--boton Clientes-->
+                <x-button skin="flat" id="paginaclientes" style="color: white;">
+                    Clientes
+                </x-button>
+                <!--boton productos-->
+                <x-button skin="flat" id="paginaproductos" style="color: white;">
+                    Productos
+                </x-button>
+
+                 <!--boton compra-->
+                 <x-button skin="flat" id="paginacompra" style="color: white;">
+                    Realizar Compra
+                </x-button>
+
+                <!--boton compra-->
+                <x-button skin="flat" id="paginadevolucion" style="color: white;">
+                    Realizar Devolucion
+                </x-button>
+                <!--boton salir-->
+                <x-tab id="idsalir">
+                    <x-label>Salir</x-label>
+                </x-tab>
+            </x-tabs>
+        </footer>
+    </div>
+    <x-notification id="notification" timeout="2000"></x-notification>
+    <script>require('./appdevolucion.js')</script>
+</body>
+
+</html>

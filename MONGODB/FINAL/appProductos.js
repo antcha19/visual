@@ -1,6 +1,10 @@
 const fs = require("fs")
+
 let salir = document.getElementById("idsalir");
+let PaginaProductos =document.getElementById("paginaproductos");
 let PaginaClientes = document.getElementById("paginaclientes");
+let PaginaCompra = document.getElementById("paginacompra");
+let PaginaDevolucion = document.getElementById("paginadevolucion");
 
 //conexion a la base de datos , local
 const mongoose = require('mongoose');
@@ -63,8 +67,10 @@ document.getElementById("btnCargarproducto").addEventListener('click', () => {
     })
     let p1 = producto.save().then(result => {
         console.log("nuevo producto añadido:", result);
+        alert('nuevo producto añadido ');
     }).catch(error => {
         console.log("ERROR al añadir el producto :", error);
+        alert('ERROR al añadir el producto ');
     });
     //
     Promise.all([p1]).then(values => {
@@ -109,7 +115,18 @@ salir.addEventListener('click', (event) => {
     close()
 })
 
-//cambia de pagina a index.html que es la pagina de clientes
-PaginaClientes.addEventListener('click', (event) => {
-    document.location.href= "index.html";
+//cambia de pagina a index.html
+PaginaClientes.addEventListener('click', (event)  =>{
+    document.location.href="index.html";
 })
+
+//cambia de pagina a compra.html
+PaginaCompra.addEventListener('click', (event)  =>{
+    document.location.href="compra.html";
+})
+
+//cambia de pagina a compra.html
+PaginaDevolucion.addEventListener('click', (event)  =>{
+    document.location.href="devolucion.html";
+})
+
