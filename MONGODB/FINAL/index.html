@@ -13,7 +13,7 @@
 <body>
     <div class="window">
         <header class="toolbar toolbar-header">
-            <x-tabs>
+            <x-tabs style="background-color: black;">
                 <x-box >
                     <!--boton insertar-->
                     <x-button  skin="flat" id="txtNuevo" style="margin-left: 10px;">
@@ -69,10 +69,31 @@
                             <x-box vertical style="margin-left: 50px; margin-top: 50px;">
                                 <x-box vertical>
                                     <x-label style="color: #107425; ">Introduce el DNI</x-label>
-                                    <x-input id="txtnuevodni">
+                                    <x-input id="txtborrarcliente">
                                         <x-icon  name="movie"></x-icon>
                                     </x-input>
-                                    <x-button id="btnCargar" style="margin-top: 10px;">
+                                    <x-button id="btnborrar" style="margin-top: 10px;">
+                                        <x-icon name="face"></x-icon>
+                                    </x-button>
+                                    <x-button onclick="this.closest('dialog').close()" style="margin-left: 240px;">
+                                       <strong><x-label style="color: #107425;">Cancelar</x-label></strong>
+                                    </x-button>
+                                </x-box>
+                            </x-box>
+                        </dialog>
+                    </x-button>
+
+                    <!--boton Buscar por Dni-->
+                    <x-button  skin="flat" id="txtNuevo" style="margin-left: 10px;">
+                        <strong><x-label  class="icon icon-install" style="color: white; text-align: center;"> Buscar Cliente </x-label></strong>
+                        <dialog style="text-align: center; background-color:#d1cece" >
+                            <x-box vertical style="margin-left: 50px; margin-top: 50px;">
+                                <x-box vertical>
+                                    <x-label style="color: #107425; ">Introduce el DNI</x-label>
+                                    <x-input id="txtbuscardni">
+                                        <x-icon  name="movie"></x-icon>
+                                    </x-input>
+                                    <x-button id="btnbuscardni" style="margin-top: 10px;">
                                         <x-icon name="face"></x-icon>
                                     </x-button>
                                     <x-button onclick="this.closest('dialog').close()" style="margin-left: 240px;">
@@ -102,7 +123,7 @@
         <!--Añadimos un pie para poner los botones-->
         <footer class="toolbar toolbar-footer">
             
-            <x-tabs>
+            <x-tabs >
                 <!--boton Clientes-->
                 <x-button skin="flat" id="paginaclientes" style="color: white;">
                     Clientes

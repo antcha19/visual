@@ -1,3 +1,4 @@
+const { error } = require("console");
 const fs = require("fs")
 
 let salir = document.getElementById("idsalir");
@@ -29,20 +30,20 @@ let clientesSchema = new mongoose.Schema({
     dni: {
         type: String,
         required: true,
-        minlength: 9,
+        minlength: 4,
         trim: true,
         unique: true
     },
     nombre: {
         type: String,
         required: true,
-        minlength: 4,
+        minlength: 1,
         trim: true
     },
     apellidos: {
         type: String,
         required: true,
-        minlength: 5,
+        minlength: 1,
         trim: true
     },
     edad: {
@@ -54,13 +55,13 @@ let clientesSchema = new mongoose.Schema({
     direccion: {
         type: String,
         required: true,
-        minlength: 5,
+        minlength: 1,
         trim: true
     },
     email: {
         type: String,
         required: true,
-        minlength: 5,
+        minlength: 1,
         trim: true
     }
 });
@@ -97,7 +98,9 @@ document.getElementById("btnCargar").addEventListener('click', () => {
     //
     Promise.all([p1]).then(values => {
         mongoose.connection.close();
+      
     });
+    mostrartodosclientes();
 })
 
 
@@ -125,19 +128,63 @@ function mostrartodosclientes() {
                             <td>${cliente.direccion}</td>
                             <td>${cliente.email}</td>
                         </tr>
-                        
-                    </table>
-                   
+                    </table> 
                 </div>`;
                
         });
-        
         document.getElementById("wrapper").innerHTML = cadenaDOM;
     }).catch(error => {
         console.log("ERROR en find");
+        alert('Error al buscar');
     });
    
 }
+//borrar cliente
+document.getElementById("btnborrar").addEventListener('click',()=>{
+    let txtborrarcliente = document.getElementById('txtborrarcliente').value;
+    clientemodelo.remove({dni: txtborrarcliente}).then(result =>{
+        alert('El cliente ha sido borrado');
+    }).catch(error =>{
+        alert('Error al borrar el cliente')
+    });
+    mostrartodosclientes();
+})
+
+//
+//buscar por dni
+document.getElementById("btnbuscardni").addEventListener('click',()=>{
+    let txtbuscardni = document.getElementById("txtbuscardni").value;
+    clientemodelo.find({dni:{$regex:'.*'+txtbuscardni+'.*'}}).then(resultado => {
+        let cadenaDOM = "";
+        resultado.forEach(cliente => {
+            cadenaDOM +=
+                `<div>
+                    <table >
+                        <tr style="background-color:#567CE3 ;">
+                            <th>DNI</th>
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                            <th>Edad</th>
+                            <th>Direccion</th>
+                            <th>Email</th>
+                        </tr>
+                        <tr>
+                            <td>${cliente.dni}</td>
+                            <td>${cliente.nombre}</td>
+                            <td>${cliente.apellidos}</td>
+                            <td>${cliente.edad}</td>
+                            <td>${cliente.direccion}</td>
+                            <td>${cliente.email}</td>
+                        </tr>
+                    </table> 
+                </div>`;
+        });
+        document.getElementById("wrapper").innerHTML = cadenaDOM;
+        
+    }).catch(error => {
+        alert('Error al buscar el Cliente, puede que no exista')
+    }); 
+})
 
 
 
