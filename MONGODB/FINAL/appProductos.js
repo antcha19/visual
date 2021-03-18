@@ -6,6 +6,8 @@ let PaginaClientes = document.getElementById("paginaclientes");
 let PaginaCompra = document.getElementById("paginacompra");
 let PaginaDevolucion = document.getElementById("paginadevolucion");
 
+
+
 //conexion a la base de datos , local
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
@@ -15,6 +17,7 @@ mongoose.connect('mongodb://localhost:27017/ferreteria', {
     useUnifiedTopology: true
 }).then(() => { console.log('connected') })
     .catch((err) => { console.log('error al conectarse a la bbdd ') })
+
 
 
 //esquena de la tabla productos
@@ -47,6 +50,7 @@ let productosSchema = new mongoose.Schema({
 });
 
 //modelo , añade una tabla productos a la bbdd
+module.exports = mongoose.model('productos', productosSchema);
 let productosmodelo = mongoose.model('productos', productosSchema);
 mostrartodosproductos();
 
