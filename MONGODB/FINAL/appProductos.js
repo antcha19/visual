@@ -1,4 +1,12 @@
 const fs = require("fs")
+//conexion a la base de datos , local
+const mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
+const conexion = require('./conexionbbdd/conexion');
+//exporto modelo
+const productosmodelo = require('./modelos/producto');
+
+
 
 let salir = document.getElementById("idsalir");
 let PaginaProductos = document.getElementById("paginaproductos");
@@ -8,9 +16,7 @@ let PaginaDevolucion = document.getElementById("paginadevolucion");
 
 
 
-//conexion a la base de datos , local
-const mongoose = require('mongoose');
-mongoose.Promise = global.Promise;
+/*
 //conexión
 mongoose.connect('mongodb://localhost:27017/ferreteria', {
     useNewUrlParser: true,
@@ -19,7 +25,7 @@ mongoose.connect('mongodb://localhost:27017/ferreteria', {
     .catch((err) => { console.log('error al conectarse a la bbdd ') })
 
 
-
+/*
 //esquena de la tabla productos
 let productosSchema = new mongoose.Schema({
     idproducto: {
@@ -50,9 +56,39 @@ let productosSchema = new mongoose.Schema({
 });
 
 //modelo , añade una tabla productos a la bbdd
-module.exports = mongoose.model('productos', productosSchema);
 let productosmodelo = mongoose.model('productos', productosSchema);
+*/
 mostrartodosproductos();
+
+//mostrar en la web 
+//busqueda con find
+function mostrartodosproductos() {
+    productosmodelo.find().then(resultado => {
+        let cadenaDOM = "";
+        resultado.forEach(producto => {
+            cadenaDOM +=
+                `<div>
+                    <table >
+                        <tr style="background-color:#567CE3 ;">
+                            <th>Producto</th>
+                            <th>Nombre</th>
+                            <th>precio</th>
+                            <th>Cantidad</th>
+                        </tr>
+                        <tr>
+                            <td>${producto.idproducto}</td>
+                            <td>${producto.nombreproducto}</td>
+                            <td>${producto.precioproducto}</td>
+                            <td>${producto.cantidadproducto}</td>
+                        </tr>
+                    </table>
+                </div>`;
+        });
+        document.getElementById("wrapper").innerHTML = cadenaDOM;
+    }).catch(error => {
+        console.log("ERROR en find");
+    });
+}
 
 //anadir productos
 document.getElementById("btnCargarproducto").addEventListener('click', () => {
@@ -85,35 +121,7 @@ document.getElementById("btnCargarproducto").addEventListener('click', () => {
 })
 
 
-//mostrar en la web 
-//busqueda con find
-function mostrartodosproductos() {
-    productosmodelo.find().then(resultado => {
-        let cadenaDOM = "";
-        resultado.forEach(producto => {
-            cadenaDOM +=
-                `<div>
-                    <table >
-                        <tr style="background-color:#567CE3 ;">
-                            <th>Producto</th>
-                            <th>Nombre</th>
-                            <th>precio</th>
-                            <th>Cantidad</th>
-                        </tr>
-                        <tr>
-                            <td>${producto.idproducto}</td>
-                            <td>${producto.nombreproducto}</td>
-                            <td>${producto.precioproducto}</td>
-                            <td>${producto.cantidadproducto}</td>
-                        </tr>
-                    </table>
-                </div>`;
-        });
-        document.getElementById("wrapper").innerHTML = cadenaDOM;
-    }).catch(error => {
-        console.log("ERROR en find");
-    });
-}
+
 
 //buscar un producto
 document.getElementById("btnbuscar").addEventListener('click',()=>{
