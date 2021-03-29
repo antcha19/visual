@@ -48,6 +48,31 @@
                         </dialog>
                     </x-button>
 
+                     <!--boton buscar por el nombre del producto-->
+                     <x-button  skin="flat" id="txtNuevo" style="margin-left: 10px;">
+                        <strong><x-label  class="icon icon-install" style="color: white; text-align: center;"> Producto </x-label></strong>
+                        <dialog style="text-align: center; background-color:#d1cece" >
+                            <x-box vertical style="margin-left: 50px; margin-top: 50px;">
+                                <x-box vertical>
+                                    <x-label style="color: #107425; ">Introduce id</x-label>
+                                    <x-input id="txtbuscarid">
+                                        <x-icon  name="movie"></x-icon>
+                                    </x-input>
+                                    <x-label style="color: #107425; ">Introduce el nombre del producto</x-label>
+                                    <x-input id="txtbuscar">
+                                        <x-icon  name="movie"></x-icon>
+                                    </x-input>
+                                    <x-button id="btnbuscar" style="margin-top: 10px;">
+                                        <x-icon name="face"></x-icon>
+                                    </x-button>
+                                    <x-button onclick="this.closest('dialog').close()" style="margin-left: 240px;">
+                                       <strong><x-label style="color: #107425;">Cancelar</x-label></strong>
+                                    </x-button>
+                                </x-box>
+                            </x-box>
+                        </dialog>
+                    </x-button>
+
                 </x-box>
             </x-tabs>
         </header>

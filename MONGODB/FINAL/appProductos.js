@@ -74,12 +74,15 @@ function mostrartodosproductos() {
                             <th>Nombre</th>
                             <th>precio</th>
                             <th>Cantidad</th>
+                            <th>Imagen</th>
                         </tr>
                         <tr>
                             <td>${producto.idproducto}</td>
                             <td>${producto.nombreproducto}</td>
                             <td>${producto.precioproducto}</td>
                             <td>${producto.cantidadproducto}</td>
+                            <td><a href="./images/${producto.imagen}" target="_blank" ><img src="./images/${producto.imagen}" height="50" width="50"></td>
+                         
                         </tr>
                     </table>
                 </div>`;
@@ -96,6 +99,7 @@ document.getElementById("btnCargarproducto").addEventListener('click', () => {
     let txtNuevoproducto = document.getElementById('txtnuevoproducto').value;
     let txtNuevoprecio = document.getElementById('txtnuevoprecio').value;
     let txtNuevostock = document.getElementById('txtnuevostock').value;
+    let txtNuevaimagen = document.getElementById('txtnuevoimagen').value;
 
     //insertamos los clientes
     let producto = new productosmodelo({
@@ -103,6 +107,7 @@ document.getElementById("btnCargarproducto").addEventListener('click', () => {
         nombreproducto: txtNuevoproducto,
         precioproducto: txtNuevoprecio,
         cantidadproducto: txtNuevostock,
+        imagen : txtNuevaimagen
     })
     let p1 = producto.save().then(result => {
         console.log("nuevo producto añadido:", result);
@@ -115,7 +120,7 @@ document.getElementById("btnCargarproducto").addEventListener('click', () => {
         alert('ERROR al añadir el producto ');
     });
     mostrartodosproductos();
-    limpiarproducto();
+   limpiarproducto();
 
 
 })
@@ -123,29 +128,33 @@ document.getElementById("btnCargarproducto").addEventListener('click', () => {
 
 
 
-//buscar un producto
+//buscar un producto por el nombre
 document.getElementById("btnbuscar").addEventListener('click',()=>{
     let txtbuscar = document.getElementById("txtbuscar").value;
     productosmodelo.find({nombreproducto:{$regex:'.*'+txtbuscar+'.*'}}).then(resultado => {
         let cadenaDOM = "";
         resultado.forEach(producto => {
             cadenaDOM +=
-                `<div>
-                    <table >
-                        <tr style="background-color:#567CE3 ;">
-                            <th>Producto</th>
-                            <th>Nombre</th>
-                            <th>precio</th>
-                            <th>Cantidad</th>
-                        </tr>
-                        <tr>
-                            <td>${producto.idproducto}</td>
-                            <td>${producto.nombreproducto}</td>
-                            <td>${producto.precioproducto}</td>
-                            <td>${producto.cantidadproducto}</td>
-                        </tr>
-                    </table>
-                </div>`;
+            `<div>
+            <table >
+                <tr style="background-color:#567CE3 ;">
+                    <th>Producto</th>
+                    <th>Nombre</th>
+                    <th>precio</th>
+                    <th>Cantidad</th>
+                    <th>Imagen</th>
+                    
+                </tr>
+                <tr>
+                    <td>${producto.idproducto}</td>
+                    <td>${producto.nombreproducto}</td>
+                    <td>${producto.precioproducto}</td>
+                    <td>${producto.cantidadproducto}</td>
+                   <td><a href="./images/${producto.imagen}" target="_blank" ><img src="./images/${producto.imagen}" height="50" width="50"></td>
+                 
+                </tr>
+            </table>
+        </div>`;
         });
         document.getElementById("wrapper").innerHTML = cadenaDOM;
         
@@ -185,10 +194,7 @@ PaginaCompra.addEventListener('click', (event) => {
     document.location.href = "compra.html";
 })
 
-//cambia de pagina
-PaginaDevolucion.addEventListener('click', (event) => {
-    document.location.href = "devolucion.html";
-})
+
 
 //funcion limpiar
 function limpiarproducto() {

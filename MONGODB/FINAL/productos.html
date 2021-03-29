@@ -14,20 +14,24 @@
     <div class="window">
         <header class="toolbar toolbar-header">
             <x-tabs>
-                <x-box >
+                <x-box>
                     <!--boton insertar-->
-                    <x-button  skin="flat" id="txtNuevo" style="margin-left: 10px;">
-                        <strong><x-label  class="icon icon-install" style="color: white; text-align: center;"> Insertar </x-label></strong>
-                        <dialog style="text-align: center; background-color:#d1cece" >
-                           
+                    <x-button skin="flat" id="txtNuevo" style="margin-left: 10px;">
+                        <strong>
+                            <x-label class="icon icon-install" style="color: white; text-align: center;"> Insertar
+                            </x-label>
+                        </strong>
+                        <dialog style="text-align: center; background-color:#d1cece">
+
                             <x-box vertical style="margin-left: 50px; margin-top: 50px;">
                                 <x-box vertical>
                                     <x-label style="color: #107425; ">Introduce Id del Producto</x-label>
                                     <x-input id="txtnuevoid">
-                                        <x-icon  name="movie"></x-icon>
+                                        <x-icon name="movie"></x-icon>
                                     </x-input>
-                                    
-                                    <x-label style="color: #107425; margin-top: 20px;">Introduce nombre del producto </x-label>
+
+                                    <x-label style="color: #107425; margin-top: 20px;">Introduce nombre del producto
+                                    </x-label>
                                     <x-input id="txtnuevoproducto">
                                         <x-icon name="face"></x-icon>
                                     </x-input>
@@ -42,13 +46,19 @@
                                         <x-icon name="face"></x-icon>
                                     </x-input>
 
+                                    <x-label style="color: #107425; margin-top: 20px;">Introduce imagen del producto
+                                    </x-label>
+                                    <x-input id="txtnuevoimagen">
+                                        <x-icon name="face"></x-icon>
+                                    </x-input>
 
-                                    
                                     <x-button id="btnCargarproducto" style="margin-top: 10px;">
                                         <x-icon name="movie"></x-icon>
                                     </x-button>
                                     <x-button onclick="this.closest('dialog').close()" style="margin-left: 240px;">
-                                       <strong><x-label style="color: #107425;">Cancelar</x-label></strong>
+                                        <strong>
+                                            <x-label style="color: #107425;">Cancelar</x-label>
+                                        </strong>
                                     </x-button>
                                 </x-box>
                             </x-box>
@@ -56,42 +66,52 @@
                     </x-button>
 
 
-                     <!--boton borrar-->
-                     <x-button  skin="flat" id="txtNuevo" style="margin-left: 10px;">
-                        <strong><x-label  class="icon icon-install" style="color: white; text-align: center;"> Borrar </x-label></strong>
-                        <dialog style="text-align: center; background-color:#d1cece" >
+                    <!--boton borrar-->
+                    <x-button skin="flat" id="txtNuevo" style="margin-left: 10px;">
+                        <strong>
+                            <x-label class="icon icon-install" style="color: white; text-align: center;"> Borrar
+                            </x-label>
+                        </strong>
+                        <dialog style="text-align: center; background-color:#d1cece">
                             <x-box vertical style="margin-left: 50px; margin-top: 50px;">
                                 <x-box vertical>
                                     <x-label style="color: #107425; ">Introduce el ID del producto</x-label>
                                     <x-input id="txtborrarproducto">
-                                        <x-icon  name="movie"></x-icon>
+                                        <x-icon name="movie"></x-icon>
                                     </x-input>
                                     <x-button id="btnborrarproducto" style="margin-top: 10px;">
                                         <x-icon name="face"></x-icon>
                                     </x-button>
                                     <x-button onclick="this.closest('dialog').close()" style="margin-left: 240px;">
-                                       <strong><x-label style="color: #107425;">Cancelar</x-label></strong>
+                                        <strong>
+                                            <x-label style="color: #107425;">Cancelar</x-label>
+                                        </strong>
                                     </x-button>
                                 </x-box>
                             </x-box>
                         </dialog>
                     </x-button>
 
-                     <!--boton buscar por el nombre del producto-->
-                     <x-button  skin="flat" id="txtNuevo" style="margin-left: 10px;">
-                        <strong><x-label  class="icon icon-install" style="color: white; text-align: center;"> Producto </x-label></strong>
-                        <dialog style="text-align: center; background-color:#d1cece" >
+                    <!--boton buscar por el nombre del producto-->
+                    <x-button skin="flat" id="txtNuevo" style="margin-left: 10px;">
+                        <strong>
+                            <x-label class="icon icon-install" style="color: white; text-align: center;"> Producto
+                            </x-label>
+                        </strong>
+                        <dialog style="text-align: center; background-color:#d1cece">
                             <x-box vertical style="margin-left: 50px; margin-top: 50px;">
                                 <x-box vertical>
                                     <x-label style="color: #107425; ">Introduce el nombre del producto</x-label>
                                     <x-input id="txtbuscar">
-                                        <x-icon  name="movie"></x-icon>
+                                        <x-icon name="movie"></x-icon>
                                     </x-input>
                                     <x-button id="btnbuscar" style="margin-top: 10px;">
                                         <x-icon name="face"></x-icon>
                                     </x-button>
                                     <x-button onclick="this.closest('dialog').close()" style="margin-left: 240px;">
-                                       <strong><x-label style="color: #107425;">Cancelar</x-label></strong>
+                                        <strong>
+                                            <x-label style="color: #107425;">Cancelar</x-label>
+                                        </strong>
                                     </x-button>
                                 </x-box>
                             </x-box>
@@ -123,8 +143,8 @@
                     Productos
                 </x-button>
 
-                 <!--boton compra-->
-                 <x-button skin="flat" id="paginacompra" style="color: white;">
+                <!--boton compra-->
+                <x-button skin="flat" id="paginacompra" style="color: white;">
                     Realizar Compra
                 </x-button>
 

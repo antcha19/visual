@@ -186,13 +186,16 @@ document.getElementById("btnbuscardni").addEventListener('click', () => {
                 </div>`;
         });
         document.getElementById("wrapper").innerHTML = cadenaDOM;
-
+      
     }).catch(error => {
         alert('Error al buscar el Cliente, puede que no exista')
     });
     limpiarclientes();
     
 })
+
+
+
 
 //buscar por nombre del cliente
 document.getElementById("btnbuscarnombre").addEventListener('click', () => {

@@ -25,6 +25,18 @@ let productosSchema = new mongoose.Schema({
         required: true,
         minlength: 1,
         trim: true
+    },
+    cantidadproducto: {
+        type: Number,
+        required: true,
+        minlength: 1,
+        trim: true
+    },
+    imagen: {
+        type: String,
+        required: true,
+        minlength: 1,
+        trim: true
     }
 });
 
