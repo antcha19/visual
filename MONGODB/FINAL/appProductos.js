@@ -176,6 +176,7 @@ document.getElementById("btnborrarproducto").addEventListener('click', () => {
         alert('Error al borrar el porducto')
     });
     mostrartodosproductos();
+    limpiarproducto();
 })
 
 
