@@ -6,12 +6,26 @@ db.createCollection("contacts")- create tablas
 db.contacts.find()- select
 db.contacts.remove({name:{"Boris"}) --delete
 
+db --> veo en que base estoy 
+
+db.help()---> nuestra todos los comando que nos pueden ayudar
+
+db.contacts.find().pretty() --> podemos ver la informacion en formato .json
+
+db.dropDatabase()---> elimina la base de datos en la que estoy
+
+use nombrebbdd ---> cambiarse de base de datos
+
+show collections---->listar las colecciones de una bbdd
 
 //instalar una version especifica
 npm install --save mongoose@5.9.18
 
 
+https://es.stackoverflow.com/questions/440663/c%c3%b3mo-relaciono-2-tablas-con-mongosee-y-node-js
 
 
+
+https://www.dropbox.com/sh/3f49zynuail44po/AADDFLtd_AkJSaf2LnNusuzWa?dl=0
 
 

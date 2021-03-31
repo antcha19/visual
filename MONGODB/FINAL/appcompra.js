@@ -4,8 +4,9 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 //conexion bbdd
 const conexion = require('./conexionbbdd/conexion');
-//const compramodelo = require('./modelos/producto');
+//exportamos los modelos necesarios
 const productosmodelo = require('./modelos/producto');
+const compramodelo = require('./modelos/compra')
 
 let salir = document.getElementById("idsalir");
 let PaginaProductos = document.getElementById("paginaproductos");
@@ -13,39 +14,34 @@ let PaginaClientes = document.getElementById("paginaclientes");
 let PaginaCompra = document.getElementById("paginacompra");
 let PaginaDevolucion = document.getElementById("paginadevolucion");
 
+//anadir productos
+document.getElementById("btncargarcompra").addEventListener('click', () => {
+    let txtIdcompra = document.getElementById('txtidcompra').value;
+    let txtIDcliente = document.getElementById('txtidcliente').value;
+    let horaactual = Date.now();
 
-/*
-//buscar un producto
-document.getElementById("btnbuscar").addEventListener('click',()=>{
-    let txtbuscar = document.getElementById("txtbuscar").value;
-    productosmodelo.find({nombreproducto:{$regex:'.*'+txtbuscar+'.*'}}).then(resultado => {
-        let cadenaDOM = "";
-        resultado.forEach(producto => {
-            cadenaDOM +=
-                `<div>
-                    <table >
-                        <tr style="background-color:#567CE3 ;">
-                            <th>Producto</th>
-                            <th>Nombre</th>
-                            <th>precio</th>
-                            <th>Cantidad</th>
-                        </tr>
-                        <tr>
-                            <td>${producto.idproducto}</td>
-                            <td>${producto.nombreproducto}</td>
-                            <td>${producto.precioproducto}</td>
-                            <td>${producto.cantidadproducto}</td>
-                        </tr>
-                    </table>
-                </div>`;
+    //insertamos los clientes
+    let nuevacompra = new compramodelo({
+        idcompra: txtIdcompra,
+        date: horaactual,
+        clienteid: txtIDcliente,
+
+    })
+    let p1 = nuevacompra.save().then(result => {
+        console.log("Se ha realizado la compra existosamente:", result);
+        alert('Se ha realizado la compra existosamente:');
+        Promise.all([p1]).then(values => {
+            mongoose.connection.close();
         });
-        document.getElementById("wrapper").innerHTML = cadenaDOM;
-        
     }).catch(error => {
-        alert('Error al buscar el producto, puede que no exista')
+        console.log("ERROR al relizar la compra :", error);
+        alert('ERROR al relizar la compra :');
     });
-    document.getElementById("txtbuscar").value = "";
-})*/
+
+})
+
+
+
 
 
 //funcion salir

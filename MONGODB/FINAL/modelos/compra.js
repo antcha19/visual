@@ -1,11 +1,8 @@
 const mongoose = require('mongoose');
-const {clienteSchema} = require('./cliente')
+const  clienteSchema  = require('./cliente')
 
-const compraSchema = new mongoose.Schema({
-    cliente:{
-        type: clienteSchema,
-        required: true
-    },
+let compraSchema = new mongoose.Schema({
+    
     idcompra: {
         type: String,
         required: true,
@@ -16,9 +13,16 @@ const compraSchema = new mongoose.Schema({
     date: {
         type: Date,
         default: Date.now
-    }
+    },
+    clienteid: [{
+        id: {
+            type: mongoose.Schema.ObjectId,
+            ref: 'cliente'
+        }
+    }],
+
 })
 
-const compramodelo= mongoose.model('compra', compraSchema)
+const compramodelo = mongoose.model('compra', compraSchema)
 
-module.exports= compramodelo
+module.exports = compramodelo

@@ -121,8 +121,6 @@ document.getElementById("btnCargarproducto").addEventListener('click', () => {
     });
     mostrartodosproductos();
    limpiarproducto();
-
-
 })
 
 
