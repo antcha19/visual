@@ -3,6 +3,7 @@ const fs = require("fs")
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const conexion = require('./conexionbbdd/conexion');
+const cliente = require("./modelos/cliente");
 
 let salir = document.getElementById("idsalir");
 let PaginaProductos = document.getElementById("paginaproductos");
@@ -11,7 +12,7 @@ let PaginaCompra = document.getElementById("paginacompra");
 let PaginaDevolucion = document.getElementById("paginadevolucion");
 //exporto la tabla de cliente
 //Modelos
-var clientemodelo  = require('./modelos/cliente');
+var clientemodelo = require('./modelos/cliente');
 
 
 
@@ -97,7 +98,7 @@ document.getElementById("btnCargar").addEventListener('click', () => {
         console.log("nuevo cliente añadido:", result);
         alert('Nuevo cliente añadido');
     }).catch(error => {
-        console.log("ERROR al añadir al cliente :", error);
+        console.log(error);
         alert('ERROR al añadir al cliente ');
     });
     //
@@ -162,6 +163,7 @@ document.getElementById("btnbuscardni").addEventListener('click', () => {
     let txtbuscardni = document.getElementById("txtbuscardni").value;
     clientemodelo.find({ dni: { $regex: '.*' + txtbuscardni + '.*' } }).then(resultado => {
         let cadenaDOM = "";
+        
         resultado.forEach(cliente => {
             cadenaDOM +=
                 `<div>
@@ -184,16 +186,18 @@ document.getElementById("btnbuscardni").addEventListener('click', () => {
                         </tr>
                     </table> 
                 </div>`;
+                let variable = cliente.dni;
+                alert('ha sido encontrado' + variable)
         });
+        
         document.getElementById("wrapper").innerHTML = cadenaDOM;
-      
+        
     }).catch(error => {
         alert('Error al buscar el Cliente, puede que no exista')
     });
     limpiarclientes();
-    
-})
 
+})
 
 
 
@@ -229,7 +233,7 @@ document.getElementById("btnbuscarnombre").addEventListener('click', () => {
     }).catch(error => {
         alert('Error al buscar el nombre del cliente, puede que no exista')
     });
-    
+
     limpiarclientes();
 })
 
@@ -270,7 +274,7 @@ function limpiarclientes() {
     document.getElementById('txtnuevoapellidos').value = "";
     document.getElementById('txtnuevoedad').value = "";
     document.getElementById('txtnuevodireccion').value = "";
-    document.getElementById('txtnuevoemail').value= "";
+    document.getElementById('txtnuevoemail').value = "";
     //buscar el nombre
     document.getElementById("txtbuscarnombre").value = "";
     //buscar el dni

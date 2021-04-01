@@ -1,0 +1,12 @@
+Configuración
+git config —global user.name “TU NOMBRE”
+git config —global user.email tunombre@tudominio.com
+git config —global diff.tool vimdiff
+git config —global diff.tool tkdiff
+git config —global credential.helper manager
+En un windows si trabajamos en proyectos compartidos (LF a CRLF)
+git config —global core.autocrlf true
+En un linux, para que haga lo contrario (LF a CRLF):
+git config —global core.autocrlf input
+Dejarlo como está, sin alterar nada (para proyectos en los que todos tendremos el mismo SO)
+git config —global core.autocrlf false

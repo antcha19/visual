@@ -14,12 +14,10 @@ let compraSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    clienteid: [{
-        id: {
-            type: mongoose.Schema.ObjectId,
-            ref: 'cliente'
-        }
-    }],
+    clienteid: {
+        type: String,
+        required: true
+    }
 
 })
 
