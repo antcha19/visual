@@ -17,6 +17,10 @@ let compraSchema = new mongoose.Schema({
     clienteid: {
         type: String,
         required: true
+    },
+    productoid:{
+        type: String,
+        required: true
     }
 
 })

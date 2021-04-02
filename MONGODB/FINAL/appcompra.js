@@ -17,43 +17,82 @@ let PaginaDevolucion = document.getElementById("paginadevolucion");
 
 //anadir compra
 document.getElementById("btncargarcompra").addEventListener('click', () => {
-    
+
     let txtIdcompra = document.getElementById('txtidcompra').value;
     let txtIDcliente = document.getElementById('txtidcliente').value;
+    let txtIDProducto = document.getElementById('txtidproducto').value;
     let horaactual = Date.now();
     clientemodelo.find({ dni: { $regex: '.*' + txtIDcliente + '.*' } }).then(resultado => {
-     
         resultado.forEach(cliente => {
             let variable = cliente.dni;
+            //si existe el id entra en el bucle
             if (variable == txtIDcliente) {
-                //insertamos los clientes
-                let nuevacompra = new compramodelo({
-                    idcompra: txtIdcompra,
-                    date: horaactual,
-                    clienteid: txtIDcliente,
-    
+                productosmodelo.find({idproducto: { $regex: '.*' + txtIDProducto + '.*' }}).then(resultadopro =>{
+                    resultadopro.forEach(producto => {
+                        let productoencontrado = producto.idproducto;
+                        //si existe el producto entra en el bucle
+                        if(productoencontrado == txtIDProducto){
+                            let nuevacompra = new compramodelo({
+                                idcompra: txtIdcompra,
+                                date: horaactual,
+                                clienteid: txtIDcliente,
+                                productoid: txtIDProducto
+                            })
+                            let p1 = nuevacompra.save().then(result => {
+                                console.log(result);
+                                alert('Se ha realizado la compra existosamente:');
+                                Promise.all([p1]).then(values => {
+                                    mongoose.connection.close();
+                                });
+                            }).catch(error => {
+                                console.log(error);
+                                alert('ERROR al relizar la compra :');
+                            });
+                        }
+                    })
                 })
-                let p1 = nuevacompra.save().then(result => {
-                    console.log(result);
-                    alert('Se ha realizado la compra existosamente:');
-                    Promise.all([p1]).then(values => {
-                        mongoose.connection.close();
-                    });
-                }).catch(error => {
-                    console.log(error);
-                    alert('ERROR al relizar la compra :');
-                });
             }
         });
-        
-       
     }).catch(error => {
         alert('Error al buscar el Cliente, puede que no exista')
     });
-
-
-
 })
+
+
+
+mostrartodosproductos();
+
+//busqueda con find de producto
+function mostrartodosproductos() {
+    compramodelo.find().then(resultado => {
+        let cadenaDOM = "";
+        resultado.forEach(compra => {
+            cadenaDOM +=
+                `<div>
+                    <table >
+                        <tr style="background-color:#567CE3 ;">
+                            <th>ID Compra</th>
+                            <th>Fecha de la compra</th>
+                            <th>ID cliente</th>
+                            <th>ID producto</th>
+                        </tr>
+                        <tr>
+                            <td>${compra.idcompra}</td>
+                            <td>${compra.date}</td>
+                            <td>${compra.clienteid}</td>
+                            <td>${compra.productoid}</td>
+                        </tr>
+                    </table> 
+                </div>`;
+
+        });
+        document.getElementById("wrapper").innerHTML = cadenaDOM;
+    }).catch(error => {
+        console.log("ERROR en find");
+        alert('Error al buscar');
+    });
+
+}
 
 
 

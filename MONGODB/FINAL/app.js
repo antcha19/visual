@@ -3,7 +3,7 @@ const fs = require("fs")
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const conexion = require('./conexionbbdd/conexion');
-const cliente = require("./modelos/cliente");
+
 
 let salir = document.getElementById("idsalir");
 let PaginaProductos = document.getElementById("paginaproductos");
@@ -16,64 +16,6 @@ var clientemodelo = require('./modelos/cliente');
 
 
 
-
-/*
-//conexión
-mongoose.connect('mongodb://localhost:27017/ferreteria', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).then(() => { console.log('connected') })
-    .catch((err) => { console.log('error al conectarse a la bbdd ') })
-    
-
-/*-----------------------------------cliente---------------------------------------------- */
-/*
-//esquema de la table cliente
-let clientesSchema = new mongoose.Schema({
-    dni: {
-        type: String,
-        required: true,
-        minlength: 4,
-        trim: true,
-        unique: true
-    },
-    nombre: {
-        type: String,
-        required: true,
-        minlength: 1,
-        trim: true
-    },
-    apellidos: {
-        type: String,
-        required: true,
-        minlength: 1,
-        trim: true
-    },
-    edad: {
-        type: String,
-        required: true,
-        minlength: 1,
-        trim: true
-    },
-    direccion: {
-        type: String,
-        required: true,
-        minlength: 1,
-        trim: true
-    },
-    email: {
-        type: String,
-        required: true,
-        minlength: 1,
-        trim: true
-    }
-});
-//modelo
-//exportar modelo
-module.exports = mongoose.model('cliente', clientesSchema);
-//añade una tabla cliente a la bbdd 
-let clientemodelo = mongoose.model('cliente', clientesSchema);
-*/
 mostrartodosclientes();
 limpiarclientes();
 
@@ -144,8 +86,8 @@ function mostrartodosclientes() {
         console.log("ERROR en find");
         alert('Error al buscar');
     });
-
 }
+
 //borrar cliente
 document.getElementById("btnborrar").addEventListener('click', () => {
     let txtborrarcliente = document.getElementById('txtborrarcliente').value;

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 //esquena de la tabla productos
 let productosSchema = new mongoose.Schema({
     idproducto: {
-        type: Number,
+        type: String,
         required: true,
         minlength: 1,
         trim: true,

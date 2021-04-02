@@ -6,6 +6,6 @@ mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:27017/ferreteria', {
     useNewUrlParser: true,
     useUnifiedTopology: true
-}).then(() => { console.log('connected') })
-    .catch((err) => { console.log('error al conectarse a la bbdd ') })
+}).then(() => { console.log('Se ha conectado a la Base de datos') })
+    .catch((err) => { console.log('Error en la conexion') })
 
