@@ -36,7 +36,7 @@ document.getElementById("btnCargar").addEventListener('click', () => {
         direccion: txtNuevodireccion,
         email: txtNuevoemail
     })
-    let p1 = cliente.save().then(result => {
+    cliente.save().then(result => {
         console.log("nuevo cliente añadido:", result);
         alert('Nuevo cliente añadido');
     }).catch(error => {
@@ -44,10 +44,7 @@ document.getElementById("btnCargar").addEventListener('click', () => {
         alert('ERROR al añadir al cliente ');
     });
     //
-    Promise.all([p1]).then(values => {
-        mongoose.connection.close();
-
-    });
+    
     mostrartodosclientes();
     limpiarclientes();
 })

@@ -17,18 +17,21 @@ let PaginaDevolucion = document.getElementById("paginadevolucion");
 
 //anadir compra
 document.getElementById("btncargarcompra").addEventListener('click', () => {
-
+    //guardo los valores que introduzco en la interfaz
     let txtIdcompra = document.getElementById('txtidcompra').value;
     let txtIDcliente = document.getElementById('txtidcliente').value;
     let txtIDProducto = document.getElementById('txtidproducto').value;
+    // hora actual de la compra
     let horaactual = Date.now();
     clientemodelo.find({ dni: { $regex: '.*' + txtIDcliente + '.*' } }).then(resultado => {
         resultado.forEach(cliente => {
+            //guardo el dni para comprobar si existe
             let variable = cliente.dni;
             //si existe el id entra en el bucle
             if (variable == txtIDcliente) {
                 productosmodelo.find({idproducto: { $regex: '.*' + txtIDProducto + '.*' }}).then(resultadopro =>{
                     resultadopro.forEach(producto => {
+                        //guardo el id del producto para comprabar si existe
                         let productoencontrado = producto.idproducto;
                         //si existe el producto entra en el bucle
                         if(productoencontrado == txtIDProducto){
@@ -38,6 +41,7 @@ document.getElementById("btncargarcompra").addEventListener('click', () => {
                                 clienteid: txtIDcliente,
                                 productoid: txtIDProducto
                             })
+                            //guardo la compra en la base de datos 
                             let p1 = nuevacompra.save().then(result => {
                                 console.log(result);
                                 alert('Se ha realizado la compra existosamente:');
@@ -58,12 +62,82 @@ document.getElementById("btncargarcompra").addEventListener('click', () => {
     });
 })
 
+//mostar productos
+document.getElementById("mostrarproductos").addEventListener('click', () => {
+    productosmodelo.find().then(resultado => {
+        let cadenaDOM = "";
+        resultado.forEach(producto => {
+            cadenaDOM +=
+                `<div>
+                    <table >
+                        <tr style="background-color:#567CE3 ;">
+                            <th>Producto</th>
+                            <th>Nombre</th>
+                            <th>precio</th>
+                            <th>Cantidad</th>
+                            <th>Imagen</th>
+                        </tr>
+                        <tr>
+                            <td>${producto.idproducto}</td>
+                            <td>${producto.nombreproducto}</td>
+                            <td>${producto.precioproducto}</td>
+                            <td>${producto.cantidadproducto}</td>
+                            <td><a href="./images/${producto.imagen}" target="_blank" ><img src="./images/${producto.imagen}" height="50" width="50"></td>
+                         
+                        </tr>
+                    </table>
+                </div>`;
+        });
+        document.getElementById("wrapper").innerHTML = cadenaDOM;
+    }).catch(error => {
+        console.log("ERROR en find");
+    });
+    
+})
+
+//mostar productos
+document.getElementById("mostrarclientes").addEventListener('click', () => {
+    clientemodelo.find().then(resultado => {
+        let cadenaDOM = "";
+        resultado.forEach(cliente => {
+            cadenaDOM +=
+                `<div>
+                    <table >
+                        <tr style="background-color:#567CE3 ;">
+                            <th>DNI</th>
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                            <th>Edad</th>
+                            <th>Direccion</th>
+                            <th>Email</th>
+                        </tr>
+                        <tr>
+                            <td>${cliente.dni}</td>
+                            <td>${cliente.nombre}</td>
+                            <td>${cliente.apellidos}</td>
+                            <td>${cliente.edad}</td>
+                            <td>${cliente.direccion}</td>
+                            <td>${cliente.email}</td>
+                        </tr>
+                    </table> 
+                </div>`;
+
+        });
+        document.getElementById("wrapper").innerHTML = cadenaDOM;
+    }).catch(error => {
+        console.log("ERROR en find");
+        alert('Error al buscar');
+    });
+    
+})
 
 
-mostrartodosproductos();
+
+
+mostrarcompras();
 
 //busqueda con find de producto
-function mostrartodosproductos() {
+function mostrarcompras() {
     compramodelo.find().then(resultado => {
         let cadenaDOM = "";
         resultado.forEach(compra => {

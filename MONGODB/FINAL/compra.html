@@ -14,10 +14,10 @@
     <div class="window">
         <header class="toolbar toolbar-header">
             <x-tabs>
-                <x-box >
-                    <!--boton insertar-->
+                <x-box style="text-align: center;">
+                    <!--boton realizar compra-->
                     <x-button  skin="flat" id="txtNuevo" style="margin-left: 10px;">
-                        <strong><x-label  class="icon icon-install" style="color: white; text-align: center;"> Insertar </x-label></strong>
+                        <strong><x-label  class="icon icon-install" style="color: white; text-align: center;"> Realizar compra </x-label></strong>
                         <dialog style="text-align: center; background-color:#d1cece" >
                            
                             <x-box vertical style="margin-left: 50px; margin-top: 50px;">
@@ -72,6 +72,17 @@
                             </x-box>
                         </dialog>
                     </x-button>
+
+                    <!--boton mostrar poductos-->
+                    <x-button  skin="flat" id="mostrarproductos" style="margin-left: 10px;">
+                        <strong><x-label  class="icon icon-install" style="color: white; text-align: center;"> Productos </x-label></strong>     
+                    </x-button>
+                    <!--boton mostrar clientes-->
+                    <x-button  skin="flat" id="mostrarclientes" style="margin-left: 10px;">
+                        <strong><x-label  class="icon icon-install" style="color: white; text-align: center;"> Clientes </x-label></strong>
+                    </x-button>
+
+
 
                 </x-box>
             </x-tabs>
