@@ -1,0 +1,2 @@
+formato hora y fecha
+https://www.aprenderaprogramar.com/index.php?option=com_content&view=article&id=846:formato-fechas-javascript-tostring-tolocaledatestring-tolocaletimestrig-totimestring-ejemplo-cu01163e&catid=78&Itemid=206

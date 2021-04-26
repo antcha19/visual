@@ -40,14 +40,12 @@ document.getElementById("btncargarcompra").addEventListener('click', () => {
                                 date: horaactual,
                                 clienteid: txtIDcliente,
                                 productoid: txtIDProducto
+                                
                             })
                             //guardo la compra en la base de datos 
-                            let p1 = nuevacompra.save().then(result => {
+                            nuevacompra.save().then(result => {
                                 console.log(result);
                                 alert('Se ha realizado la compra existosamente:');
-                                Promise.all([p1]).then(values => {
-                                    mongoose.connection.close();
-                                });
                             }).catch(error => {
                                 console.log(error);
                                 alert('ERROR al relizar la compra :');
@@ -60,6 +58,8 @@ document.getElementById("btncargarcompra").addEventListener('click', () => {
     }).catch(error => {
         alert('Error al buscar el Cliente, puede que no exista')
     });
+     
+    
 })
 
 //mostar productos
@@ -135,7 +135,6 @@ document.getElementById("mostrarclientes").addEventListener('click', () => {
 
 
 mostrarcompras();
-
 //busqueda con find de producto
 function mostrarcompras() {
     compramodelo.find().then(resultado => {
@@ -152,7 +151,7 @@ function mostrarcompras() {
                         </tr>
                         <tr>
                             <td>${compra.idcompra}</td>
-                            <td>${compra.date}</td>
+                            <td>${compra.date.toLocaleString()}</td>
                             <td>${compra.clienteid}</td>
                             <td>${compra.productoid}</td>
                         </tr>

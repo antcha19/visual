@@ -19,7 +19,7 @@ let compraSchema = new mongoose.Schema({
         required: true
     },
     productoid:{
-        type: String,
+        type: Array,
         required: true
     }
 
